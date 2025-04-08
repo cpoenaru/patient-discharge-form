@@ -672,11 +672,13 @@ function setupButtonTracking() {
     button.addEventListener('click', function() {
       const buttonName = this.getAttribute('data-cf-button-name') || 'Unknown Button';
       if (typeof CloudflareAnalytics !== 'undefined') {
-        CloudflareAnalytics.push({
-          event: 'buttonClick',
-          buttonName: buttonName
-        });
+          console.log("1")
+          CloudflareAnalytics.push({
+              event: 'buttonClick',
+              buttonName: buttonName
+          });
       }
+      else { console.log(2) }
     });
   });
 }
