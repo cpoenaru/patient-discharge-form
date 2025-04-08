@@ -1,1 +1,697 @@
-<h1>Hello</h1>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formular de Externare Pacient</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Formular de Externare Pacient</h1>
+
+    <div id="formContainer">
+        <div class="form-section">
+            <h2>Informații Pacient</h2>
+            <div class="form-group">
+                <label for="numePrenume">Nume și prenume pacient: <span class="required">*</span></label>
+                <input type="text" id="numePrenume" name="numePrenume" required>
+            </div>
+            <div class="form-group">
+                <label for="istoric">Istoric pacient: <span class="required">*</span></label>
+                <textarea id="istoric" name="istoric" rows="3" required></textarea>
+            </div>
+
+            <div class="form-section-columns">
+                <div class="column">
+                    <h3>Ochi Drept (OD)</h3>
+                    <div class="form-group">
+                        <label for="avodFC">AVOD FC (Acuitate Vizuală Ochi Drept - Fără Corecție):</label>
+                        <input type="text" id="avodFC" name="avodFC">
+                    </div>
+                    <div class="form-group">
+                        <label for="avodCC">AVOD CC/CPS (Acuitate Vizuală Ochi Drept - Cu Corecție / Cu Punct Stenopeic):</label>
+                        <input type="text" id="avodCC" name="avodCC">
+                    </div>
+                    <div class="form-group">
+                        <label for="piod">PIOOD (Presiune Intraoculară Ochi Drept) (mmHg):</label>
+                        <input type="text" id="piod" name="piod">
+                    </div>
+                </div>
+                <div class="column">
+                    <h3>Ochi Stâng (OS)</h3>
+                    <div class="form-group">
+                        <label for="avosFC">AVOS FC (Acuitate Vizuală Ochi Stâng - Fără Corecție):</label>
+                        <input type="text" id="avosFC" name="avosFC">
+                    </div>
+                    <div class="form-group">
+                        <label for="avosCC">AVOS CC/CPS (Acuitate Vizuală Ochi Stâng - Cu Corecție / Cu Punct Stenopeic):</label>
+                        <input type="text" id="avosCC" name="avosCC">
+                    </div>
+                    <div class="form-group">
+                        <label for="pios">PIOOS (Presiune Intraoculară Ochi Stâng) (mmHg):</label>
+                        <input type="text" id="pios" name="pios">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Examen Biomicroscopic</h2>
+            <div class="eye-section">
+                <div class="eye-column">
+                    <h3>Ochi Drept (OD)</h3>
+                    <div class="form-group">
+                        <label for="conjunctiva_od">Conjunctiva:</label>
+                        <input type="text" id="conjunctiva_od" name="conjunctiva_od" placeholder="conjunctiva normal colorata">
+                    </div>
+                    <div class="form-group">
+                        <label for="sclera_od">Sclera:</label>
+                        <input type="text" id="sclera_od" name="sclera_od" placeholder="sclera alb sidefie">
+                    </div>
+                    <div class="form-group">
+                        <label for="cornee_od">Cornee:</label>
+                        <input type="text" id="cornee_od" name="cornee_od" placeholder="cornee transparenta, neteda, lucioasa">
+                    </div>
+                    <div class="form-group">
+                        <label for="ca_od">Camera anterioară:</label>
+                        <input type="text" id="ca_od" name="ca_od" placeholder="CA medie, libera">
+                    </div>
+                    <div class="form-group">
+                        <label for="iris_od">Iris:</label>
+                        <input type="text" id="iris_od" name="iris_od" placeholder="iris integru">
+                    </div>
+                    <div class="form-group">
+                        <label for="pupila_od">Pupilă:</label>
+                        <input type="text" id="pupila_od" name="pupila_od" placeholder="pupila reactiva, centrala, simetrica, rotunda">
+                    </div>
+                    <div class="form-group">
+                        <label for="cristalin_od">Cristalin:</label>
+                        <input type="text" id="cristalin_od" name="cristalin_od" placeholder="cristalin transparent">
+                    </div>
+                </div>
+                <div class="eye-column">
+                    <h3>Ochi Stâng (OS)</h3>
+                    <div class="form-group">
+                        <label for="conjunctiva_os">Conjunctiva:</label>
+                        <input type="text" id="conjunctiva_os" name="conjunctiva_os" placeholder="conjunctiva normal colorata">
+                    </div>
+                    <div class="form-group">
+                        <label for="sclera_os">Sclera:</label>
+                        <input type="text" id="sclera_os" name="sclera_os" placeholder="sclera alb sidefie">
+                    </div>
+                    <div class="form-group">
+                        <label for="cornee_os">Cornee:</label>
+                        <input type="text" id="cornee_os" name="cornee_os" placeholder="cornee transparenta, neteda, lucioasa">
+                    </div>
+                    <div class="form-group">
+                        <label for="ca_os">Camera anterioară:</label>
+                        <input type="text" id="ca_os" name="ca_os" placeholder="CA medie, libera">
+                    </div>
+                    <div class="form-group">
+                        <label for="iris_os">Iris:</label>
+                        <input type="text" id="iris_os" name="iris_os" placeholder="iris integru">
+                    </div>
+                    <div class="form-group">
+                        <label for="pupila_os">Pupilă:</label>
+                        <input type="text" id="pupila_os" name="pupila_os" placeholder="pupila reactiva, centrala, simetrica, rotunda">
+                    </div>
+                    <div class="form-group">
+                        <label for="cristalin_os">Cristalin:</label>
+                        <input type="text" id="cristalin_os" name="cristalin_os" placeholder="cristalin transparent">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Examen Fund de Ochi</h2>
+            <div class="eye-section">
+                <div class="eye-column">
+                    <h3>Ochi Drept (OD)</h3>
+                    <div class="form-group">
+                        <label for="pno_od">Papila Nervului Optic:</label>
+                        <input type="text" id="pno_od" name="pno_od" placeholder="PNO contur net, normal colorata">
+                    </div>
+                    <div class="form-group">
+                        <label for="cd_od">C/D (Raport Cap/Disc):</label>
+                        <input type="text" id="cd_od" name="cd_od" placeholder="C/D - in limite fiziologice">
+                    </div>
+                    <div class="form-group">
+                        <label for="emergenta_vase_od">Emergența vaselor:</label>
+                        <input type="text" id="emergenta_vase_od" name="emergenta_vase_od" placeholder="vase emergente central">
+                    </div>
+                    <div class="form-group">
+                        <label for="calibru_vase_od">Calibru vase:</label>
+                        <input type="text" id="calibru_vase_od" name="calibru_vase_od" placeholder="calibru normal">
+                    </div>
+                    <div class="form-group">
+                        <label for="macula_od">Macula:</label>
+                        <input type="text" id="macula_od" name="macula_od" placeholder="macula fara leziuni">
+                    </div>
+                    <div class="form-group">
+                        <label for="rf_od">Reflex foveolar:</label>
+                        <select id="rf_od" class="select-option">
+                            <option value="reflex foveolar prezent">Prezent</option>
+                            <option value="reflex foveolar absent">Absent</option>
+                            <option value="other">Altul (specificați)</option>
+                        </select>
+                        <input type="text" id="rf_od_other" class="hidden" placeholder="Specificați reflexul foveolar">
+                    </div>
+                    <div class="form-group">
+                        <label for="periferie_od">Periferie:</label>
+                        <input type="text" id="periferie_od" name="periferie_od" placeholder="periferie fara leziuni">
+                    </div>
+                </div>
+                <div class="eye-column">
+                    <h3>Ochi Stâng (OS)</h3>
+                    <div class="form-group">
+                        <label for="pno_os">Papila Nervului Optic:</label>
+                        <input type="text" id="pno_os" name="pno_os" placeholder="PNO contur net, normal colorata">
+                    </div>
+                    <div class="form-group">
+                        <label for="cd_os">C/D (Raport Cap/Disc):</label>
+                        <input type="text" id="cd_os" name="cd_os" placeholder="C/D - in limite fiziologice">
+                    </div>
+                    <div class="form-group">
+                        <label for="emergenta_vase_os">Emergența vaselor:</label>
+                        <input type="text" id="emergenta_vase_os" name="emergenta_vase_os" placeholder="vase emergente central">
+                    </div>
+                    <div class="form-group">
+                        <label for="calibru_vase_os">Calibru vase:</label>
+                        <input type="text" id="calibru_vase_os" name="calibru_vase_os" placeholder="calibru normal">
+                    </div>
+                    <div class="form-group">
+                        <label for="macula_os">Macula:</label>
+                        <input type="text" id="macula_os" name="macula_os" placeholder="macula fara leziuni">
+                    </div>
+                    <div class="form-group">
+                        <label for="rf_os">Reflex foveolar:</label>
+                        <select id="rf_os" class="select-option">
+                            <option value="reflex foveolar prezent">Prezent</option>
+                            <option value="reflex foveolar absent">Absent</option>
+                            <option value="other">Altul (specificați)</option>
+                        </select>
+                        <input type="text" id="rf_os_other" class="hidden" placeholder="Specificați reflexul foveolar">
+                    </div>
+                    <div class="form-group">
+                        <label for="periferie_os">Periferie:</label>
+                        <input type="text" id="periferie_os" name="periferie_os" placeholder="periferie fara leziuni">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Examinări Suplimentare</h2>
+
+            <div class="form-group">
+                <label>OCT:</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="octCheckbox" name="octCheckbox">
+                    <label for="octCheckbox">OCT Efectuat</label>
+                </div>
+                <div id="octFields" class="hidden">
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="octMacularCheckbox" name="octMacularCheckbox">
+                            <label for="octMacularCheckbox">OCT Macular</label>
+                        </div>
+                        <div id="octMacularFields" class="hidden">
+                            <div class="eye-section">
+                                <div class="eye-column">
+                                    <div class="form-group">
+                                        <label for="octMacular_od">OCT Macular OD:</label>
+                                        <textarea id="octMacular_od" name="octMacular_od" rows="2"></textarea>
+                                    </div>
+                                </div>
+                                <div class="eye-column">
+                                    <div class="form-group">
+                                        <label for="octMacular_os">OCT Macular OS:</label>
+                                        <textarea id="octMacular_os" name="octMacular_os" rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="octNervCheckbox" name="octNervCheckbox">
+                            <label for="octNervCheckbox">OCT de nerv optic</label>
+                        </div>
+                        <div id="octNervFields" class="hidden">
+                            <div class="eye-section">
+                                <div class="eye-column">
+                                    <div class="form-group">
+                                        <label for="octNerv_od">OCT de nerv optic OD:</label>
+                                        <textarea id="octNerv_od" name="octNerv_od" rows="2"></textarea>
+                                    </div>
+                                </div>
+                                <div class="eye-column">
+                                    <div class="form-group">
+                                        <label for="octNerv_os">OCT de nerv optic OS:</label>
+                                        <textarea id="octNerv_os" name="octNerv_os" rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Câmp Vizual (CV):</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="cvCheckbox" name="cvCheckbox">
+                    <label for="cvCheckbox">CV Efectuat</label>
+                </div>
+                <div id="cvFields" class="hidden">
+                    <div class="eye-section">
+                        <div class="eye-column">
+                            <div class="form-group">
+                                <label for="cv_od">CV OD:</label>
+                                <textarea id="cv_od" name="cv_od" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <div class="eye-column">
+                            <div class="form-group">
+                                <label for="cv_os">CV OS:</label>
+                                <textarea id="cv_os" name="cv_os" rows="2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Ecografie (Eco):</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="ecoCheckbox" name="ecoCheckbox">
+                    <label for="ecoCheckbox">Eco Efectuat</label>
+                </div>
+                <div id="ecoFields" class="hidden">
+                    <div class="eye-section">
+                        <div class="eye-column">
+                            <div class="form-group">
+                                <label for="eco_od">Eco OD:</label>
+                                <textarea id="eco_od" name="eco_od" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <div class="eye-column">
+                            <div class="form-group">
+                                <label for="eco_os">Eco OS:</label>
+                                <textarea id="eco_os" name="eco_os" rows="2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Informații Intervenție</h2>
+
+            <div class="form-group">
+                <label>Ochi operat:</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="ochiOperatOD" name="ochiOperatOD">
+                    <label for="ochiOperatOD">Ochi Drept (OD)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="ochiOperatOS" name="ochiOperatOS">
+                    <label for="ochiOperatOS">Ochi Stâng (OS)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="ochiOperatAO" name="ochiOperatAO">
+                    <label for="ochiOperatAO">Ambii Ochi (AO)</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="parcursInternare">Descriere procedură:</label>
+                <textarea id="parcursInternare" name="parcursInternare" rows="3" placeholder="Descrieți procedura efectuată"></textarea>
+            </div>
+
+            <div id="camputiOD" class="eye-fields hidden">
+                <h3>Ochi Drept (OD)</h3>
+                <div class="form-group">
+                    <label for="avOperatOD">AV OD:</label>
+                    <input type="text" id="avOperatOD" name="avOperatOD">
+                </div>
+
+                <div class="form-group">
+                    <label for="piOperatOD">PI OD:</label>
+                    <input type="text" id="piOperatOD" name="piOperatOD">
+                </div>
+
+                <div class="form-group">
+                    <label for="bmOperatOD">BM OD:</label>
+                    <input type="text" id="bmOperatOD" name="bmOperatOD">
+                </div>
+
+                <div class="form-group">
+                    <label for="foOperatOD">FO OD:</label>
+                    <input type="text" id="foOperatOD" name="foOperatOD">
+                </div>
+            </div>
+
+            <div id="camputiOS" class="eye-fields hidden">
+                <h3>Ochi Stâng (OS)</h3>
+                <div class="form-group">
+                    <label for="avOperatOS">AV OS:</label>
+                    <input type="text" id="avOperatOS" name="avOperatOS">
+                </div>
+
+                <div class="form-group">
+                    <label for="piOperatOS">PI OS:</label>
+                    <input type="text" id="piOperatOS" name="piOperatOS">
+                </div>
+
+                <div class="form-group">
+                    <label for="bmOperatOS">BM OS:</label>
+                    <input type="text" id="bmOperatOS" name="bmOperatOS">
+                </div>
+
+                <div class="form-group">
+                    <label for="foOperatOS">FO OS:</label>
+                    <input type="text" id="foOperatOS" name="foOperatOS">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Recomandări</h2>
+
+            <div class="form-group treatment-section">
+                <h3>Tratament: <span class="required">*</span></h3>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="tropicamida" name="tropicamida">
+                        <label for="tropicamida">Tropicamida</label>
+                    </div>
+                    <div id="tropicamida_details" class="treatment-details hidden">
+                        <input type="number" id="tropicamida_qty" value="1" min="1" class="small-input">
+                        <span>pic x</span>
+                        <input type="number" id="tropicamida_freq" value="4" min="1" class="small-input">
+                        <span>/ zi,</span>
+                        <input type="number" id="tropicamida_days" value="21" min="1" class="small-input">
+                        <span>zile</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="betabioptal" name="betabioptal">
+                        <label for="betabioptal">Betabioptal</label>
+                    </div>
+                    <div id="betabioptal_details" class="treatment-details hidden">
+                        <input type="number" id="betabioptal_qty" value="1" min="1" class="small-input">
+                        <span>pic x</span>
+                        <input type="number" id="betabioptal_freq" value="4" min="1" class="small-input">
+                        <span>/ zi,</span>
+                        <input type="number" id="betabioptal_days" value="21" min="1" class="small-input">
+                        <span>zile</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="maxitrol" name="maxitrol">
+                        <label for="maxitrol">Maxitrol</label>
+                    </div>
+                    <div id="maxitrol_details" class="treatment-details hidden">
+                        <input type="number" id="maxitrol_qty" value="1" min="1" class="small-input">
+                        <span>pic x</span>
+                        <input type="number" id="maxitrol_freq" value="4" min="1" class="small-input">
+                        <span>/ zi,</span>
+                        <input type="number" id="maxitrol_days" value="14" min="1" class="small-input">
+                        <span>zile</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="indocollyre" name="indocollyre">
+                        <label for="indocollyre">Indocollyre</label>
+                    </div>
+                    <div id="indocollyre_details" class="treatment-details hidden">
+                        <input type="number" id="indocollyre_qty" value="1" min="1" class="small-input">
+                        <span>pic x</span>
+                        <input type="number" id="indocollyre_freq" value="4" min="1" class="small-input">
+                        <span>/ zi,</span>
+                        <input type="number" id="indocollyre_days" value="14" min="1" class="small-input">
+                        <span>zile</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="ketorolac" name="ketorolac">
+                        <label for="ketorolac">Ketorolac</label>
+                    </div>
+                    <div id="ketorolac_details" class="treatment-details hidden">
+                        <input type="number" id="ketorolac_qty" value="1" min="1" class="small-input">
+                        <span>pic x</span>
+                        <input type="number" id="ketorolac_freq" value="4" min="1" class="small-input">
+                        <span>/ zi,</span>
+                        <input type="number" id="ketorolac_days" value="14" min="1" class="small-input">
+                        <span>zile</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="septozinc" name="septozinc">
+                        <label for="septozinc">Septozinc</label>
+                    </div>
+                    <div id="septozinc_details" class="treatment-details hidden">
+                        <input type="number" id="septozinc_qty" value="1" min="1" class="small-input">
+                        <span>pic x</span>
+                        <input type="number" id="septozinc_freq" value="4" min="1" class="small-input">
+                        <span>/ zi,</span>
+                        <input type="number" id="septozinc_days" value="7" min="1" class="small-input">
+                        <span>zile</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="dropsept" name="dropsept">
+                        <label for="dropsept">Dropsept</label>
+                    </div>
+                    <div id="dropsept_details" class="treatment-details hidden">
+                        <input type="number" id="dropsept_qty" value="1" min="1" class="small-input">
+                        <span>pic x</span>
+                        <input type="number" id="dropsept_freq" value="4" min="1" class="small-input">
+                        <span>/ zi,</span>
+                        <input type="number" id="dropsept_days" value="7" min="1" class="small-input">
+                        <span>zile</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="ducressa" name="ducressa">
+                        <label for="ducressa">Ducressa</label>
+                    </div>
+                    <div id="ducressa_details" class="treatment-details hidden">
+                        <input type="number" id="ducressa_qty" value="1" min="1" class="small-input">
+                        <span>pic x</span>
+                        <input type="number" id="ducressa_freq" value="4" min="1" class="small-input">
+                        <span>/ zi,</span>
+                        <input type="number" id="ducressa_days" value="14" min="1" class="small-input">
+                        <span>zile</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="trium" name="trium">
+                        <label for="trium">Trium</label>
+                    </div>
+                    <div id="trium_details" class="treatment-details hidden">
+                        <input type="number" id="trium_qty" value="1" min="1" class="small-input">
+                        <span>pic x</span>
+                        <input type="number" id="trium_freq" value="4" min="1" class="small-input">
+                        <span>/ zi,</span>
+                        <input type="number" id="trium_days" value="14" min="1" class="small-input">
+                        <span>zile</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="maxidex" name="maxidex">
+                        <label for="maxidex">Maxidex</label>
+                    </div>
+                    <div id="maxidex_details" class="treatment-details hidden">
+                        <input type="number" id="maxidex_qty" value="1" min="1" class="small-input">
+                        <span>pic x</span>
+                        <input type="number" id="maxidex_freq" value="4" min="1" class="small-input">
+                        <span>/ zi,</span>
+                        <input type="number" id="maxidex_days" value="14" min="1" class="small-input">
+                        <span>zile</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="edenorm" name="edenorm">
+                        <label for="edenorm">Edenorm</label>
+                    </div>
+                    <div id="edenorm_details" class="treatment-details hidden">
+                        <input type="number" id="edenorm_qty" value="1" min="1" class="small-input">
+                        <span>pic x</span>
+                        <input type="number" id="edenorm_freq" value="4" min="1" class="small-input">
+                        <span>/ zi,</span>
+                        <input type="number" id="edenorm_days" value="7" min="1" class="small-input">
+                        <span>zile</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="ededay" name="ededay">
+                        <label for="ededay">Ededay</label>
+                    </div>
+                    <div id="ededay_details" class="treatment-details hidden">
+                        <input type="number" id="ededay_qty" value="1" min="1" class="small-input">
+                        <span>pic x</span>
+                        <input type="number" id="ededay_freq" value="4" min="1" class="small-input">
+                        <span>/ zi,</span>
+                        <input type="number" id="ededay_days" value="7" min="1" class="small-input">
+                        <span>zile</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="edenight" name="edenight">
+                        <label for="edenight">Edenight</label>
+                    </div>
+                    <div id="edenight_details" class="treatment-details hidden">
+                        <input type="number" id="edenight_qty" value="1" min="1" class="small-input">
+                        <span>pic x</span>
+                        <input type="number" id="edenight_freq" value="1" min="1" class="small-input">
+                        <span>/ zi,</span>
+                        <input type="number" id="edenight_days" value="7" min="1" class="small-input">
+                        <span>zile</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="floxal" name="floxal">
+                        <label for="floxal">Floxal</label>
+                    </div>
+                    <div id="floxal_details" class="treatment-details hidden">
+                        <input type="number" id="floxal_qty" value="1" min="1" class="small-input">
+                        <span>pic x</span>
+                        <input type="number" id="floxal_freq" value="4" min="1" class="small-input">
+                        <span>/ zi,</span>
+                        <input type="number" id="floxal_days" value="7" min="1" class="small-input">
+                        <span>zile</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="loptic" name="loptic">
+                        <label for="loptic">L-optic</label>
+                    </div>
+                    <div id="loptic_details" class="treatment-details hidden">
+                        <input type="number" id="loptic_qty" value="1" min="1" class="small-input">
+                        <span>pic x</span>
+                        <input type="number" id="loptic_freq" value="4" min="1" class="small-input">
+                        <span>/ zi,</span>
+                        <input type="number" id="loptic_days" value="7" min="1" class="small-input">
+                        <span>zile</span>
+                    </div>
+                </div>
+
+                <div id="additionalTreatments">
+                    <div class="form-group">
+                        <label for="treatment1">Tratament suplimentar:</label>
+                        <input type="text" id="treatment1" name="treatment1" placeholder="Nume tratament">
+                        <div class="treatment-details">
+                            <input type="number" id="treatment1_qty" min="1" placeholder="Picături" class="small-input">
+                            <span>pic x</span>
+                            <input type="number" id="treatment1_freq" min="1" placeholder="Frecvență" class="small-input">
+                            <span>/ zi,</span>
+                            <input type="number" id="treatment1_days" min="1" placeholder="Zile" class="small-input">
+                            <span>zile</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" id="addTreatment" class="add-recommendation">Adaugă tratament</button>
+            </div>
+
+            <div class="recommendations-section">
+                <h3>Restricții:</h3>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="restrictiePozitieFata" name="restrictiePozitieFata">
+                    <label for="restrictiePozitieFata">Restricție poziție: Interzisă poziția cu fața în sus</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="restrictieZbor" name="restrictieZbor">
+                    <label for="restrictieZbor">Restricție zbor: Interzis zborul cu avionul până la control</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="restrictieGenerala" name="restrictieGenerala" checked>
+                    <label for="restrictieGenerala">Restricții generale: Evită manipularea zonei, vânt, praf, frig, efort fizic intens</label>
+                </div>
+            </div>
+
+            <div id="additionalRecommendations">
+                <div class="form-group">
+                    <label for="recommendation1">Recomandare suplimentară:</label>
+                    <input type="text" id="recommendation1" name="recommendation1">
+                </div>
+            </div>
+
+            <button type="button" id="addRecommendation" class="add-recommendation">Adaugă recomandare</button>
+
+            <div class="form-group">
+                <label for="controlDate">Data și ora control:</label>
+                <input type="datetime-local" id="controlDate" name="controlDate" min="">
+            </div>
+        </div>
+
+        <button type="button" id="generateButton">Generează Formular de Externare</button>
+    </div>
+
+    <div id="resultContainer" class="hidden">
+        <h2>Formular de Externare</h2>
+        <div id="resultContent"></div>
+        <div class="result-buttons">
+            <button type="button" id="printButton">Tipărește</button>
+            <button type="button" id="copyButton">Copiază în clipboard</button>
+            <button type="button" id="backButton">Înapoi la Formular</button>
+        </div>
+    </div>
+
+    <div id="validationMessage" class="hidden">
+        <p>Vă rugăm să completați toate câmpurile obligatorii marcate cu *</p>
+    </div>
+
+    <div class="sticky-buttons">
+        <button type="button" id="backToTopButton" class="back-to-top">
+            <span class="button-text">Înapoi sus</span>
+            <span class="button-icon">&#8679;</span>
+        </button>
+        <button type="button" id="generateButtonSticky" class="generate-button">
+            <span class="button-text">Generează Formular</span>
+            <span class="button-icon">&#10004;</span>
+        </button>
+        <button type="button" id="resetButton" class="reset-button">
+            <span class="button-text">Resetează</span>
+            <span class="button-icon">&#8635;</span>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
