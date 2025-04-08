@@ -665,3 +665,20 @@ document.getElementById('backButton').addEventListener('click', function() {
     // Show the sticky buttons again when returning to the form
     document.querySelector('.sticky-buttons').classList.remove('hidden');
 });
+
+function setupButtonTracking() {
+  const trackableButtons = document.querySelectorAll('[data-cf-track="true"]');
+  trackableButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const buttonName = this.getAttribute('data-cf-button-name') || 'Unknown Button';
+      if (typeof CloudflareAnalytics !== 'undefined') {
+        CloudflareAnalytics.push({
+          event: 'buttonClick',
+          buttonName: buttonName
+        });
+      }
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', setupButtonTracking);
