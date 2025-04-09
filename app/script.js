@@ -311,6 +311,8 @@ function generateDischargeForm() {
     const avosCCValue = document.getElementById('avosCC').value;
     const piodValue = document.getElementById('piod').value;
     const piosValue = document.getElementById('pios').value;
+    const pleoapaodValue = document.getElementById('pleoapaod').value;
+    const pleoapaosValue = document.getElementById('pleoapaos').value;
 
     // Only include values that are not empty, omit the FC/CC identifier
     const avodFC = avodFCValue ? 'AVOD: ' + avodFCValue : '';
@@ -319,6 +321,8 @@ function generateDischargeForm() {
     const avosCC = avosCCValue ? 'AVOS: ' + avosCCValue : '';
     const piod = piodValue ? 'PIOD: ' + piodValue + ' mmHg' : '';
     const pios = piosValue ? 'PIOS: ' + piosValue + ' mmHg' : '';
+    const pleoapaod = pleoapaodValue ? 'Pleoapa OD: ' + pleoapaodValue : '';
+    const pleoapaos = pleoapaosValue ? 'Pleoapa OS: ' + pleoapaosValue : '';
 
     // Get biomicroscopy results
     const bmod = [
@@ -554,7 +558,7 @@ function generateDischargeForm() {
     resultContent += `${istoricValue}\n\n`;
 
     // Add only non-empty vision and pressure measurements, separated by newlines
-    const eyeMeasurements = [avodFC, avodCC, avosFC, avosCC, piod, pios].filter(item => item);
+    const eyeMeasurements = [avodFC, avodCC, avosFC, avosCC, piod, pios, pleoapaod, pleoapaos].filter(item => item);
     if (eyeMeasurements.length > 0) {
         resultContent += eyeMeasurements.join('\n') + '\n\n';
     }
