@@ -92,7 +92,8 @@ document.getElementById('ochiOperatAO').addEventListener('change', function() {
 const treatmentOptions = [
     'tropicamida', 'betabioptal', 'maxitrol', 'indocollyre', 'ketorolac',
     'septozinc', 'dropsept', 'ducressa', 'trium', 'maxidex',
-    'edenorm', 'ededay', 'edenight', 'floxal', 'loptic'
+    'edenorm', 'ededay', 'edenight', 'floxal', 'loptic', 'hylocomod', 'thealozduo', 'vigamox', 'virgan', 'lubristil',
+    'hylogel', 'corneregel', 'vitapos',
 ];
 
 treatmentOptions.forEach(treatment => {
