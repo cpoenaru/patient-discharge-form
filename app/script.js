@@ -16,6 +16,14 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 // Toggle additional examination fields
+document.getElementById('foosCheckbox').addEventListener('change', function() {
+    document.getElementById('foosFields').classList.toggle('hidden', this.checked);
+});
+
+document.getElementById('foodCheckbox').addEventListener('change', function() {
+    document.getElementById('foodFields').classList.toggle('hidden', this.checked);
+});
+
 document.getElementById('octCheckbox').addEventListener('change', function() {
     document.getElementById('octFields').classList.toggle('hidden', !this.checked);
 });
@@ -334,7 +342,7 @@ function generateDischargeForm() {
     const cdOdFormatted = cdOdValue ? (cdOdValue.startsWith('C/D') ? cdOdValue : `C/D - ${cdOdValue}`) : 'C/D - in limite fiziologice';
     const cdOsFormatted = cdOsValue ? (cdOsValue.startsWith('C/D') ? cdOsValue : `C/D - ${cdOsValue}`) : 'C/D - in limite fiziologice';
 
-    const food = [
+    const food = document.getElementById("foodCheckbox").checked ? ["nu se vizualizează"] : [
         document.getElementById('pno_od').value || 'PNO contur net, normal colorata',
         cdOdFormatted,
         document.getElementById('emergenta_vase_od').value || 'vase emergente central',
@@ -344,7 +352,7 @@ function generateDischargeForm() {
         document.getElementById('periferie_od').value || 'periferie fara leziuni'
     ];
 
-    const foos = [
+    const foos = document.getElementById("foosCheckbox").checked ? ["nu se vizualizează"] : [
         document.getElementById('pno_os').value || 'PNO contur net, normal colorata',
         cdOsFormatted,
         document.getElementById('emergenta_vase_os').value || 'vase emergente central',
