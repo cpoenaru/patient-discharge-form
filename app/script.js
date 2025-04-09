@@ -629,6 +629,12 @@ document.getElementById('copyButton').addEventListener('click', function() {
     });
 });
 
+document.getElementById('emailButton').addEventListener('click', function() {
+    const emailSubject = encodeURIComponent("Externare " + document.getElementById('numePrenume').value);
+    const emailBody = encodeURIComponent(document.getElementById('resultContent').textContent);
+    window.location.href = `mailto:?subject=${emailSubject}&body=${emailBody}`;
+});
+
 // Back button
 document.getElementById('backButton').addEventListener('click', function() {
     document.getElementById('formContainer').classList.remove('hidden');
