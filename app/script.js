@@ -244,36 +244,6 @@ function validateAndGenerateForm() {
         isValid = false;
     }
 
-    // Check if at least one treatment is selected
-    const hasTreatment =
-        document.getElementById('tropicamida').checked ||
-        document.getElementById('betabioptal').checked ||
-        document.getElementById('maxitrol').checked ||
-        document.getElementById('indocollyre').checked ||
-        document.getElementById('ketorolac').checked ||
-        document.getElementById('septozinc').checked ||
-        document.getElementById('dropsept').checked ||
-        document.getElementById('ducressa').checked ||
-        document.getElementById('trium').checked ||
-        document.getElementById('maxidex').checked ||
-        document.getElementById('edenorm').checked ||
-        document.getElementById('ededay').checked ||
-        document.getElementById('edenight').checked ||
-        document.getElementById('floxal').checked ||
-        document.getElementById('loptic').checked ||
-        document.getElementById('treatment1').value.trim() !== '';
-
-    if (!hasTreatment) {
-        const treatmentSection = document.querySelector('.treatment-section');
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'error-message';
-        errorDiv.textContent = 'Selectați cel puțin un tratament sau adăugați unul nou';
-        treatmentSection.appendChild(errorDiv);
-
-        document.getElementById('treatment1').classList.add('input-error');
-        isValid = false;
-    }
-
     // If validation failed, scroll to the first error
     if (!isValid) {
         const firstError = document.querySelector('.input-error, .error-message');
@@ -305,20 +275,16 @@ function generateDischargeForm() {
     const istoricValue = document.getElementById('istoric').value;
 
     // New visual acuity fields
-    const avodFCValue = document.getElementById('avodFC').value;
-    const avodCCValue = document.getElementById('avodCC').value;
-    const avosFCValue = document.getElementById('avosFC').value;
-    const avosCCValue = document.getElementById('avosCC').value;
+    const avodValue = document.getElementById('avod').value;
+    const avosValue = document.getElementById('avos').value;
     const piodValue = document.getElementById('piod').value;
     const piosValue = document.getElementById('pios').value;
     const pleoapaodValue = document.getElementById('pleoapaod').value;
     const pleoapaosValue = document.getElementById('pleoapaos').value;
 
     // Only include values that are not empty, omit the FC/CC identifier
-    const avodFC = avodFCValue ? 'AVOD: ' + avodFCValue : '';
-    const avodCC = avodCCValue ? 'AVOD: ' + avodCCValue : '';
-    const avosFC = avosFCValue ? 'AVOS: ' + avosFCValue : '';
-    const avosCC = avosCCValue ? 'AVOS: ' + avosCCValue : '';
+    const avod = avodValue ? 'AVOD: ' + avodValue : '';
+    const avos = avosValue ? 'AVOS: ' + avosValue : '';
     const piod = piodValue ? 'PIOD: ' + piodValue + ' mmHg' : '';
     const pios = piosValue ? 'PIOS: ' + piosValue + ' mmHg' : '';
     const pleoapaod = pleoapaodValue ? 'Pleoapa OD: ' + pleoapaodValue : '';
@@ -558,7 +524,7 @@ function generateDischargeForm() {
     resultContent += `${istoricValue}\n\n`;
 
     // Add only non-empty vision and pressure measurements, separated by newlines
-    const eyeMeasurements = [avodFC, avodCC, avosFC, avosCC, piod, pios, pleoapaod, pleoapaos].filter(item => item);
+    const eyeMeasurements = [avod, avos, piod, pios, pleoapaod, pleoapaos].filter(item => item);
     if (eyeMeasurements.length > 0) {
         resultContent += eyeMeasurements.join('\n') + '\n\n';
     }
@@ -607,7 +573,9 @@ function generateDischargeForm() {
         recNumber++;
     }
 
-    resultContent += `\nTratament conform rețetei cu:\n`;
+    if (treatments.length > 0) {
+        resultContent += `\nTratament conform rețetei cu:\n`;
+    }
 
     // Number the treatments too
     let treatNumber = 1;
