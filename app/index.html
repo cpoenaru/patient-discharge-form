@@ -129,74 +129,86 @@
             <div class="eye-section">
                 <div class="eye-column">
                     <h3>Ochi Drept (OD)</h3>
-                    <div class="form-group">
-                        <label for="pno_od">Papila Nervului Optic:</label>
-                        <input type="text" id="pno_od" name="pno_od" placeholder="PNO contur net, normal colorata">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="foodCheckbox" name="foodCheckbox">
+                        <label for="foodCheckbox">Nu se vizualizează</label>
                     </div>
-                    <div class="form-group">
-                        <label for="cd_od">C/D (Raport Cap/Disc):</label>
-                        <input type="text" id="cd_od" name="cd_od" placeholder="C/D - in limite fiziologice">
-                    </div>
-                    <div class="form-group">
-                        <label for="emergenta_vase_od">Emergența vaselor:</label>
-                        <input type="text" id="emergenta_vase_od" name="emergenta_vase_od" placeholder="vase emergente central">
-                    </div>
-                    <div class="form-group">
-                        <label for="calibru_vase_od">Calibru vase:</label>
-                        <input type="text" id="calibru_vase_od" name="calibru_vase_od" placeholder="calibru normal">
-                    </div>
-                    <div class="form-group">
-                        <label for="macula_od">Macula:</label>
-                        <input type="text" id="macula_od" name="macula_od" placeholder="macula fara leziuni">
-                    </div>
-                    <div class="form-group">
-                        <label for="rf_od">Reflex foveolar:</label>
-                        <select id="rf_od" class="select-option">
-                            <option value="reflex foveolar prezent">Prezent</option>
-                            <option value="reflex foveolar absent">Absent</option>
-                            <option value="other">Altul (specificați)</option>
-                        </select>
-                        <input type="text" id="rf_od_other" class="hidden" placeholder="Specificați reflexul foveolar">
-                    </div>
-                    <div class="form-group">
-                        <label for="periferie_od">Periferie:</label>
-                        <input type="text" id="periferie_od" name="periferie_od" placeholder="periferie fara leziuni">
+                    <div id="foodFields">
+                        <div class="form-group">
+                            <label for="pno_od">Papila Nervului Optic:</label>
+                            <input type="text" id="pno_od" name="pno_od" placeholder="PNO contur net, normal colorata">
+                        </div>
+                        <div class="form-group">
+                            <label for="cd_od">C/D (Raport Cap/Disc):</label>
+                            <input type="text" id="cd_od" name="cd_od" placeholder="C/D - in limite fiziologice">
+                        </div>
+                        <div class="form-group">
+                            <label for="emergenta_vase_od">Emergența vaselor:</label>
+                            <input type="text" id="emergenta_vase_od" name="emergenta_vase_od" placeholder="vase emergente central">
+                        </div>
+                        <div class="form-group">
+                            <label for="calibru_vase_od">Calibru vase:</label>
+                            <input type="text" id="calibru_vase_od" name="calibru_vase_od" placeholder="calibru normal">
+                        </div>
+                        <div class="form-group">
+                            <label for="macula_od">Macula:</label>
+                            <input type="text" id="macula_od" name="macula_od" placeholder="macula fara leziuni">
+                        </div>
+                        <div class="form-group">
+                            <label for="rf_od">Reflex foveolar:</label>
+                            <select id="rf_od" class="select-option">
+                                <option value="reflex foveolar prezent">Prezent</option>
+                                <option value="reflex foveolar absent">Absent</option>
+                                <option value="other">Altul (specificați)</option>
+                            </select>
+                            <input type="text" id="rf_od_other" class="hidden" placeholder="Specificați reflexul foveolar">
+                        </div>
+                        <div class="form-group">
+                            <label for="periferie_od">Periferie:</label>
+                            <input type="text" id="periferie_od" name="periferie_od" placeholder="periferie fara leziuni">
+                        </div>
                     </div>
                 </div>
                 <div class="eye-column">
                     <h3>Ochi Stâng (OS)</h3>
-                    <div class="form-group">
-                        <label for="pno_os">Papila Nervului Optic:</label>
-                        <input type="text" id="pno_os" name="pno_os" placeholder="PNO contur net, normal colorata">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="foosCheckbox" name="foosCheckbox">
+                        <label for="foosCheckbox">Nu se vizualizează</label>
                     </div>
-                    <div class="form-group">
-                        <label for="cd_os">C/D (Raport Cap/Disc):</label>
-                        <input type="text" id="cd_os" name="cd_os" placeholder="C/D - in limite fiziologice">
-                    </div>
-                    <div class="form-group">
-                        <label for="emergenta_vase_os">Emergența vaselor:</label>
-                        <input type="text" id="emergenta_vase_os" name="emergenta_vase_os" placeholder="vase emergente central">
-                    </div>
-                    <div class="form-group">
-                        <label for="calibru_vase_os">Calibru vase:</label>
-                        <input type="text" id="calibru_vase_os" name="calibru_vase_os" placeholder="calibru normal">
-                    </div>
-                    <div class="form-group">
-                        <label for="macula_os">Macula:</label>
-                        <input type="text" id="macula_os" name="macula_os" placeholder="macula fara leziuni">
-                    </div>
-                    <div class="form-group">
-                        <label for="rf_os">Reflex foveolar:</label>
-                        <select id="rf_os" class="select-option">
-                            <option value="reflex foveolar prezent">Prezent</option>
-                            <option value="reflex foveolar absent">Absent</option>
-                            <option value="other">Altul (specificați)</option>
-                        </select>
-                        <input type="text" id="rf_os_other" class="hidden" placeholder="Specificați reflexul foveolar">
-                    </div>
-                    <div class="form-group">
-                        <label for="periferie_os">Periferie:</label>
-                        <input type="text" id="periferie_os" name="periferie_os" placeholder="periferie fara leziuni">
+                    <div id="foosFields">
+                        <div class="form-group">
+                            <label for="pno_os">Papila Nervului Optic:</label>
+                            <input type="text" id="pno_os" name="pno_os" placeholder="PNO contur net, normal colorata">
+                        </div>
+                        <div class="form-group">
+                            <label for="cd_os">C/D (Raport Cap/Disc):</label>
+                            <input type="text" id="cd_os" name="cd_os" placeholder="C/D - in limite fiziologice">
+                        </div>
+                        <div class="form-group">
+                            <label for="emergenta_vase_os">Emergența vaselor:</label>
+                            <input type="text" id="emergenta_vase_os" name="emergenta_vase_os" placeholder="vase emergente central">
+                        </div>
+                        <div class="form-group">
+                            <label for="calibru_vase_os">Calibru vase:</label>
+                            <input type="text" id="calibru_vase_os" name="calibru_vase_os" placeholder="calibru normal">
+                        </div>
+                        <div class="form-group">
+                            <label for="macula_os">Macula:</label>
+                            <input type="text" id="macula_os" name="macula_os" placeholder="macula fara leziuni">
+                        </div>
+                        <div class="form-group">
+                            <label for="rf_os">Reflex foveolar:</label>
+                            <select id="rf_os" class="select-option">
+                                <option value="reflex foveolar prezent">Prezent</option>
+                                <option value="reflex foveolar absent">Absent</option>
+                                <option value="other">Altul (specificați)</option>
+                            </select>
+                            <input type="text" id="rf_os_other" class="hidden" placeholder="Specificați reflexul foveolar">
+                        </div>
+                        <div class="form-group">
+                            <label for="periferie_os">Periferie:</label>
+                            <input type="text" id="periferie_os" name="periferie_os" placeholder="periferie fara leziuni">
+                        </div>
                     </div>
                 </div>
             </div>
