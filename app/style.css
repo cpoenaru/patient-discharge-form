@@ -292,3 +292,21 @@ input:invalid, textarea:invalid {
         display: none;
     }
 }
+
+.github-link {
+    display: inline-block;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+}
+
+.github-icon {
+    width: 32px;
+    height: 32px;
+    fill: #24292e;
+    transition: fill 0.2s;
+}
+
+.github-icon:hover {
+    fill: #2c974b;
+}
