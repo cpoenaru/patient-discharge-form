@@ -1350,6 +1350,24 @@ function formatControlDate() {
     return controlDateText;
 }
 
+/**
+ * Escape HTML special characters in a string
+ * @param {string} str - The string to escape
+ * @returns {string} - The escaped string
+ */
+function escapeHtml(str) {
+    return str.replace(/[&<>"']/g, function(match) {
+        const escapeMap = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        };
+        return escapeMap[match];
+    });
+}
+
 // =============== PRINT & EXPORT FUNCTIONALITY ===============
 
 /**
@@ -1358,7 +1376,7 @@ function formatControlDate() {
 function printDischargeForm() {
     // Get the content to print
     const contentToPrint = document.getElementById('resultContent').innerHTML;
-    const patientName = document.getElementById('numePrenume').value;
+    const patientName = escapeHtml(document.getElementById('numePrenume').value);
 
     // Create a new window for printing
     const printWindow = window.open('', '_blank', 'width=800,height=600');
