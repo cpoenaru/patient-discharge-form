@@ -9,44 +9,78 @@ window.addEventListener('DOMContentLoaded', function() {
     document.getElementById('controlDate').min = `${yyyy}-${mm}-${dd}T${hh}:${min}`;
 });
 
-document.getElementById('foosCheckbox').addEventListener('change', function() {
-    document.getElementById('foosFields').classList.toggle('hidden', this.checked);
-});
-
 document.getElementById('foodCheckbox').addEventListener('change', function() {
     document.getElementById('foodFields').classList.toggle('hidden', this.checked);
+});
+
+document.getElementById('foosCheckbox').addEventListener('change', function() {
+    document.getElementById('foosFields').classList.toggle('hidden', this.checked);
 });
 
 document.getElementById('foaoCheckbox').addEventListener('change', function() {
     document.getElementById('foaoFields').classList.toggle('hidden', this.checked);
 });
 
-document.getElementById('foodSameCheckbox').addEventListener('change', function() {
-    if (this.checked) {
-        // Delete all values for FOOD / FOOS
-        const ids = [
-            "pno_ao", "cd_ao", "emergenta_vase_ao", "calibru_vase_ao", "macula_ao", "periferie_ao"
-        ]
-        for (let i = 0; i < ids.length; i++) {
-            document.getElementById(ids[i]).value = "";
-        }
-        document.getElementById('rf_ao').value = "reflex foveolar prezent"
+function resetBMAO() {
+    const ids = [
+        "conjunctiva_ao", "sclera_ao", "cornee_ao", "ca_ao", "iris_ao", "pupila_ao", "cristalin_ao",
+    ]
+    for (let i = 0; i < ids.length; i++) {
+        document.getElementById(ids[i]).value = "";
     }
-    else {
-        // Delete all values for FOAO
-        const ids = [
-            "pno_od", "cd_od", "emergenta_vase_od", "calibru_vase_od", "macula_od", "periferie_od",
-            "pno_os", "cd_os", "emergenta_vase_os", "calibru_vase_os", "macula_os", "periferie_os",
-        ]
-        for (let i = 0; i < ids.length; i++) {
-            document.getElementById(ids[i]).value = "";
-        }
+}
 
-        document.getElementById('rf_od').value = "reflex foveolar prezent"
-        document.getElementById('rf_os').value = "reflex foveolar prezent"
-        document.getElementById('rf_od_other').value = ""
-        document.getElementById('rf_os_other').value = ""
+function resetBMODOS() {
+    const ids = [
+        "conjunctiva_od", "sclera_od", "cornee_od", "ca_od", "iris_od", "pupila_od", "cristalin_od",
+        "conjunctiva_os", "sclera_os", "cornee_os", "ca_os", "iris_os", "pupila_os", "cristalin_os",
+    ]
+    for (let i = 0; i < ids.length; i++) {
+        document.getElementById(ids[i]).value = "";
     }
+}
+
+function resetFoAO() {
+    const ids = [
+        "pno_ao", "cd_ao", "emergenta_vase_ao", "calibru_vase_ao", "macula_ao", "periferie_ao"
+    ]
+    for (let i = 0; i < ids.length; i++) {
+        document.getElementById(ids[i]).value = "";
+    }
+    document.getElementById('rf_ao').value = "reflex foveolar prezent"
+    document.getElementById('foaoCheckbox').checked = false;
+}
+
+function resetFoODOS() {
+    const ids = [
+        "pno_od", "cd_od", "emergenta_vase_od", "calibru_vase_od", "macula_od", "periferie_od",
+        "pno_os", "cd_os", "emergenta_vase_os", "calibru_vase_os", "macula_os", "periferie_os",
+    ]
+    for (let i = 0; i < ids.length; i++) {
+        document.getElementById(ids[i]).value = "";
+    }
+
+    document.getElementById('rf_od').value = "reflex foveolar prezent"
+    document.getElementById('rf_os').value = "reflex foveolar prezent"
+    document.getElementById('rf_od_other').value = ""
+    document.getElementById('rf_os_other').value = ""
+    document.getElementById('foodCheckbox').checked = false;
+    document.getElementById('foosCheckbox').checked = false;
+}
+
+document.getElementById('bmSameCheckbox').addEventListener('change', function() {
+    if (this.checked) { resetBMODOS(); }
+    else { resetBMAO(); }
+
+    document.getElementById('bmaoAllFields').classList.toggle('hidden', !this.checked);
+    document.getElementById('bmodAllFields').classList.toggle('hidden', this.checked);
+    document.getElementById('bmosAllFields').classList.toggle('hidden', this.checked);
+});
+
+document.getElementById('foSameCheckbox').addEventListener('change', function() {
+    if (this.checked) { resetFoODOS(); }
+    else { resetFoAO(); }
+
     document.getElementById('foaoAllFields').classList.toggle('hidden', !this.checked);
     document.getElementById('foodAllFields').classList.toggle('hidden', this.checked);
     document.getElementById('foosAllFields').classList.toggle('hidden', this.checked);
@@ -171,6 +205,14 @@ document.getElementById('resetButton').addEventListener('click', function() {
             input.value = '';
             input.classList.remove('input-error');
         });
+
+        // Reset Biomicroscopy
+        resetBMAO();
+        resetBMODOS();
+
+        // Reset Fundus
+        resetFoAO();
+        resetFoODOS();
 
         document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
             // Reset to default state
@@ -306,45 +348,58 @@ function generateDischargeForm() {
     const pleoapaos = pleoapaosValue ? 'Pleoapa OS: ' + pleoapaosValue : '';
 
     // Get biomicroscopy results
-    const bmod = [
-        document.getElementById('conjunctiva_od').value || 'conjunctiva normal colorata',
-        document.getElementById('sclera_od').value || 'sclera alb sidefie',
-        document.getElementById('cornee_od').value || 'cornee transparenta, neteda, lucioasa',
-        document.getElementById('ca_od').value || 'CA medie, libera',
-        document.getElementById('iris_od').value || 'iris integru',
-        document.getElementById('pupila_od').value || 'pupila reactiva, centrala, simetrica, rotunda',
-        document.getElementById('cristalin_od').value || 'cristalin transparent'
-    ];
+    let bmao;
+    let bmod;
+    let bmos;
+    let bmSameValue = (document.getElementById('bmSameCheckbox').checked);
+    if (bmSameValue) {
+        bmao = [
+            document.getElementById('conjunctiva_ao').value || 'conjunctiva normal colorata',
+            document.getElementById('sclera_ao').value || 'sclera alb sidefie',
+            document.getElementById('cornee_ao').value || 'cornee transparenta, neteda, lucioasa',
+            document.getElementById('ca_ao').value || 'CA medie, libera',
+            document.getElementById('iris_ao').value || 'iris integru',
+            document.getElementById('pupila_ao').value || 'pupila reactiva, centrala, simetrica, rotunda',
+            document.getElementById('cristalin_ao').value || 'cristalin transparent'
+        ];
+    }
+    else {
+        bmod = [
+            document.getElementById('conjunctiva_od').value || 'conjunctiva normal colorata',
+            document.getElementById('sclera_od').value || 'sclera alb sidefie',
+            document.getElementById('cornee_od').value || 'cornee transparenta, neteda, lucioasa',
+            document.getElementById('ca_od').value || 'CA medie, libera',
+            document.getElementById('iris_od').value || 'iris integru',
+            document.getElementById('pupila_od').value || 'pupila reactiva, centrala, simetrica, rotunda',
+            document.getElementById('cristalin_od').value || 'cristalin transparent'
+        ];
 
-    const bmos = [
-        document.getElementById('conjunctiva_os').value || 'conjunctiva normal colorata',
-        document.getElementById('sclera_os').value || 'sclera alb sidefie',
-        document.getElementById('cornee_os').value || 'cornee transparenta, neteda, lucioasa',
-        document.getElementById('ca_os').value || 'CA medie, libera',
-        document.getElementById('iris_os').value || 'iris integru',
-        document.getElementById('pupila_os').value || 'pupila reactiva, centrala, simetrica, rotunda',
-        document.getElementById('cristalin_os').value || 'cristalin transparent'
-    ];
+        bmos = [
+            document.getElementById('conjunctiva_os').value || 'conjunctiva normal colorata',
+            document.getElementById('sclera_os').value || 'sclera alb sidefie',
+            document.getElementById('cornee_os').value || 'cornee transparenta, neteda, lucioasa',
+            document.getElementById('ca_os').value || 'CA medie, libera',
+            document.getElementById('iris_os').value || 'iris integru',
+            document.getElementById('pupila_os').value || 'pupila reactiva, centrala, simetrica, rotunda',
+            document.getElementById('cristalin_os').value || 'cristalin transparent'
+        ];
+    }
 
     // Get fundus examination results
     let foao = []
     let food = []
     let foos = []
-    let fundusSameValue = false;
-    if (document.getElementById('foodSameCheckbox').checked) {
-        fundusSameValue = true;
+    let fundusSameValue = (document.getElementById('foSameCheckbox').checked);
+    if (fundusSameValue) {
         let rf_ao_value;
         if (document.getElementById('rf_ao').value === 'other') {
             rf_ao_value = document.getElementById('rf_ao_other').value;
         } else {
             rf_ao_value = document.getElementById('rf_ao').value;
         }
-
         // Handle C/D values - format as "C/D - [value]" if a value is entered
         const cdAoValue = document.getElementById('cd_ao').value;
-
         const cdOdFormatted = cdAoValue ? (cdAoValue.startsWith('C/D') ? cdAoValue : `C/D - ${cdAoValue}`) : 'C/D - in limite fiziologice';
-
         foao = document.getElementById("foaoCheckbox").checked ? ["nu se vizualizează"] : [
             document.getElementById('pno_ao').value || 'PNO contur net, normal colorata',
             cdOdFormatted,
@@ -574,18 +629,18 @@ function generateDischargeForm() {
         resultContent += eyeMeasurements.join('\n') + '\n\n';
     }
 
-    // Comma-separated biomicroscopy values for OD
-    resultContent += `EXAMEN BIOMICROSCOPIC OD: ${bmod.join(', ')}\n\n`;
-
-    // Comma-separated biomicroscopy values for OS
-    resultContent += `EXAMEN BIOMICROSCOPIC OS: ${bmos.join(', ')}\n\n`;
+    if (bmSameValue) {
+        resultContent += `EXAMEN BIOMICROSCOPIC AO: ${bmao.join(', ')}\n\n`;
+    }
+    else {
+        resultContent += `EXAMEN BIOMICROSCOPIC OD: ${bmod.join(', ')}\n\n`;
+        resultContent += `EXAMEN BIOMICROSCOPIC OS: ${bmos.join(', ')}\n\n`;
+    }
 
     if (fundusSameValue) {
-        // Both fundus the same
         resultContent += `FUND DE OCHI AO: ${foao.join(', ')}\n\n`
     }
     else {
-        // Comma-separated fundus examination values for OD & OS
         resultContent += `FUND DE OCHI OD: ${food.join(', ')}\n\n`;
         resultContent += `FUND DE OCHI OS: ${foos.join(', ')}\n\n`;
     }

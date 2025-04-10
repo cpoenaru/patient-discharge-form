@@ -58,8 +58,43 @@
 
         <div class="form-section">
             <h2>Examen Biomicroscopic</h2>
+            <div class="checkbox-group">
+                <input type="checkbox" id="bmSameCheckbox" name="bmSameCheckbox">
+                <label for="bmSameCheckbox">Completează aceleași informații la ambii ochi</label>
+            </div>
             <div class="eye-section">
-                <div class="eye-column">
+                <div class="eye-column hidden" id="bmaoAllFields">
+                    <h3>Ambii Ochi (AO)</h3>
+                    <div class="form-group">
+                        <label for="conjunctiva_ao">Conjunctiva:</label>
+                        <input type="text" id="conjunctiva_ao" name="conjunctiva_ao" placeholder="conjunctiva normal colorata">
+                    </div>
+                    <div class="form-group">
+                        <label for="sclera_ao">Sclera:</label>
+                        <input type="text" id="sclera_ao" name="sclera_ao" placeholder="sclera alb sidefie">
+                    </div>
+                    <div class="form-group">
+                        <label for="cornee_ao">Cornee:</label>
+                        <input type="text" id="cornee_ao" name="cornee_ao" placeholder="cornee transparenta, neteda, lucioasa">
+                    </div>
+                    <div class="form-group">
+                        <label for="ca_ao">Camera anterioară:</label>
+                        <input type="text" id="ca_ao" name="ca_ao" placeholder="CA medie, libera">
+                    </div>
+                    <div class="form-group">
+                        <label for="iris_ao">Iris:</label>
+                        <input type="text" id="iris_ao" name="iris_ao" placeholder="iris integru">
+                    </div>
+                    <div class="form-group">
+                        <label for="pupila_ao">Pupilă:</label>
+                        <input type="text" id="pupila_ao" name="pupila_ao" placeholder="pupila reactiva, centrala, simetrica, rotunda">
+                    </div>
+                    <div class="form-group">
+                        <label for="cristalin_ao">Cristalin:</label>
+                        <input type="text" id="cristalin_ao" name="cristalin_ao" placeholder="cristalin transparent">
+                    </div>
+                </div>
+                <div class="eye-column" id="bmodAllFields">
                     <h3>Ochi Drept (OD)</h3>
                     <div class="form-group">
                         <label for="conjunctiva_od">Conjunctiva:</label>
@@ -90,7 +125,7 @@
                         <input type="text" id="cristalin_od" name="cristalin_od" placeholder="cristalin transparent">
                     </div>
                 </div>
-                <div class="eye-column">
+                <div class="eye-column" id="bmosAllFields">
                     <h3>Ochi Stâng (OS)</h3>
                     <div class="form-group">
                         <label for="conjunctiva_os">Conjunctiva:</label>
@@ -127,8 +162,8 @@
         <div class="form-section">
             <h2>Examen Fund de Ochi</h2>
             <div class="checkbox-group">
-                <input type="checkbox" id="foodSameCheckbox" name="foodSameCheckbox">
-                <label for="foodSameCheckbox">Completează aceleași informații la ambii ochi</label>
+                <input type="checkbox" id="foSameCheckbox" name="foSameCheckbox">
+                <label for="foSameCheckbox">Completează aceleași informații la ambii ochi</label>
             </div>
             <div class="eye-section">
                 <div class="eye-column hidden" id="foaoAllFields">
