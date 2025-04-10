@@ -26,11 +26,11 @@
                 <div class="column">
                     <h3>Ochi Drept (OD)</h3>
                     <div class="form-group">
-                        <label for="avod">AVOD (Acuitate Vizuală Ochi Drept):</label>
+                        <label for="avod">AVOD (Acuitate Vizuală):</label>
                         <input type="text" id="avod" name="avod">
                     </div>
                     <div class="form-group">
-                        <label for="piod">PIOOD (Presiune Intraoculară Ochi Drept) (mmHg):</label>
+                        <label for="piod">PIOOD (Presiune Intraoculară) (mmHg):</label>
                         <input type="text" id="piod" name="piod">
                     </div>
                     <div class="form-group">
@@ -41,11 +41,11 @@
                 <div class="column">
                     <h3>Ochi Stâng (OS)</h3>
                     <div class="form-group">
-                        <label for="avos">AVOS (Acuitate Vizuală Ochi Stâng):</label>
+                        <label for="avos">AVOS (Acuitate Vizuală):</label>
                         <input type="text" id="avos" name="avos">
                     </div>
                     <div class="form-group">
-                        <label for="pios">PIOOS (Presiune Intraoculară Ochi Stâng) (mmHg):</label>
+                        <label for="pios">PIOOS (Presiune Intraoculară) (mmHg):</label>
                         <input type="text" id="pios" name="pios">
                     </div>
                     <div class="form-group">
@@ -58,24 +58,87 @@
 
         <div class="form-section">
             <h2>Examen Biomicroscopic</h2>
+            <div class="checkbox-group">
+                <input type="checkbox" id="bmSameCheckbox" name="bmSameCheckbox">
+                <label for="bmSameCheckbox">Completează aceleași informații la ambii ochi</label>
+            </div>
             <div class="eye-section">
-                <div class="eye-column">
-                    <h3>Ochi Drept (OD)</h3>
+                <div class="eye-column hidden" id="bmaoAllFields">
+                    <h3>Ambii Ochi (AO)</h3>
                     <div class="form-group">
-                        <label for="conjunctiva_od">Conjunctiva:</label>
-                        <input type="text" id="conjunctiva_od" name="conjunctiva_od" placeholder="conjunctiva normal colorata">
+                        <label for="conjunctiva_ao">
+                            Conjunctivă:
+                            <input type="checkbox" id="conjunctiva_other" name="conjunctiva_other">
+                            <label for="conjunctiva_other">Valoare diferită</label>
+                        </label>
+                        <input type="text" id="conjunctiva_ao" name="conjunctiva_ao" placeholder="conjunctivă normal colorată">
                     </div>
                     <div class="form-group">
-                        <label for="sclera_od">Sclera:</label>
-                        <input type="text" id="sclera_od" name="sclera_od" placeholder="sclera alb sidefie">
+                        <label for="sclera_ao">
+                            Scleră:
+                            <input type="checkbox" id="sclera_other" name="sclera_other">
+                            <label for="sclera_other">Valoare diferită</label>
+                        </label>
+                        <input type="text" id="sclera_ao" name="sclera_ao" placeholder="scleră alb sidefie">
+                    </div>
+                    <div class="form-group">
+                        <label for="cornee_ao">
+                            Cornee:
+                            <input type="checkbox" id="cornee_other" name="cornee_other">
+                            <label for="cornee_other">Valoare diferită</label>
+                        </label>
+                        <input type="text" id="cornee_ao" name="cornee_ao" placeholder="cornee transparentă, netedă, lucioasă">
+                    </div>
+                    <div class="form-group">
+                        <label for="ca_ao">
+                            Camera anterioară:
+                            <input type="checkbox" id="ca_other" name="ca_other">
+                            <label for="ca_other">Valoare diferită</label>
+                        </label>
+                        <input type="text" id="ca_ao" name="ca_ao" placeholder="CA medie, liberă">
+                    </div>
+                    <div class="form-group">
+                        <label for="iris_ao">
+                            Iris:
+                            <input type="checkbox" id="iris_other" name="iris_other">
+                            <label for="iris_other">Valoare diferită</label>
+                        </label>
+                        <input type="text" id="iris_ao" name="iris_ao" placeholder="iris integru">
+                    </div>
+                    <div class="form-group">
+                        <label for="pupila_ao">
+                            Pupilă:
+                            <input type="checkbox" id="pupila_other" name="pupila_other">
+                            <label for="pupila_other">Valoare diferită</label>
+                        </label>
+                        <input type="text" id="pupila_ao" name="pupila_ao" placeholder="pupilă reactivă, centrală, simetrică, rotundă">
+                    </div>
+                    <div class="form-group">
+                        <label for="cristalin_ao">
+                            Cristalin:
+                            <input type="checkbox" id="cristalin_other" name="cristalin_other">
+                            <label for="cristalin_other">Valoare diferită</label>
+                        </label>
+                        <input type="text" id="cristalin_ao" name="cristalin_ao" placeholder="cristalin transparent">
+                    </div>
+                </div>
+                <div class="eye-column" id="bmodAllFields">
+                    <h3>Ochi Drept (OD)</h3>
+                    <div class="form-group">
+                        <label for="conjunctiva_od">Conjunctivă:</label>
+                        <input type="text" id="conjunctiva_od" name="conjunctiva_od" placeholder="conjunctivă normal colorată">
+                    </div>
+                    <div class="form-group">
+                        <label for="sclera_od">Scleră:</label>
+                        <input type="text" id="sclera_od" name="sclera_od" placeholder="scleră alb sidefie">
                     </div>
                     <div class="form-group">
                         <label for="cornee_od">Cornee:</label>
-                        <input type="text" id="cornee_od" name="cornee_od" placeholder="cornee transparenta, neteda, lucioasa">
+                        <input type="text" id="cornee_od" name="cornee_od" placeholder="cornee transparentă, netedă, lucioasă">
                     </div>
                     <div class="form-group">
                         <label for="ca_od">Camera anterioară:</label>
-                        <input type="text" id="ca_od" name="ca_od" placeholder="CA medie, libera">
+                        <input type="text" id="ca_od" name="ca_od" placeholder="CA medie, liberă">
                     </div>
                     <div class="form-group">
                         <label for="iris_od">Iris:</label>
@@ -83,30 +146,30 @@
                     </div>
                     <div class="form-group">
                         <label for="pupila_od">Pupilă:</label>
-                        <input type="text" id="pupila_od" name="pupila_od" placeholder="pupila reactiva, centrala, simetrica, rotunda">
+                        <input type="text" id="pupila_od" name="pupila_od" placeholder="pupilă reactivă, centrală, simetrică, rotundă">
                     </div>
                     <div class="form-group">
                         <label for="cristalin_od">Cristalin:</label>
                         <input type="text" id="cristalin_od" name="cristalin_od" placeholder="cristalin transparent">
                     </div>
                 </div>
-                <div class="eye-column">
+                <div class="eye-column" id="bmosAllFields">
                     <h3>Ochi Stâng (OS)</h3>
                     <div class="form-group">
-                        <label for="conjunctiva_os">Conjunctiva:</label>
-                        <input type="text" id="conjunctiva_os" name="conjunctiva_os" placeholder="conjunctiva normal colorata">
+                        <label for="conjunctiva_os">Conjunctivă:</label>
+                        <input type="text" id="conjunctiva_os" name="conjunctiva_os" placeholder="conjunctivă normal colorată">
                     </div>
                     <div class="form-group">
-                        <label for="sclera_os">Sclera:</label>
-                        <input type="text" id="sclera_os" name="sclera_os" placeholder="sclera alb sidefie">
+                        <label for="sclera_os">Scleră:</label>
+                        <input type="text" id="sclera_os" name="sclera_os" placeholder="scleră alb sidefie">
                     </div>
                     <div class="form-group">
                         <label for="cornee_os">Cornee:</label>
-                        <input type="text" id="cornee_os" name="cornee_os" placeholder="cornee transparenta, neteda, lucioasa">
+                        <input type="text" id="cornee_os" name="cornee_os" placeholder="cornee transparentă, netedă, lucioasă">
                     </div>
                     <div class="form-group">
                         <label for="ca_os">Camera anterioară:</label>
-                        <input type="text" id="ca_os" name="ca_os" placeholder="CA medie, libera">
+                        <input type="text" id="ca_os" name="ca_os" placeholder="CA medie, liberă">
                     </div>
                     <div class="form-group">
                         <label for="iris_os">Iris:</label>
@@ -114,7 +177,7 @@
                     </div>
                     <div class="form-group">
                         <label for="pupila_os">Pupilă:</label>
-                        <input type="text" id="pupila_os" name="pupila_os" placeholder="pupila reactiva, centrala, simetrica, rotunda">
+                        <input type="text" id="pupila_os" name="pupila_os" placeholder="pupilă reactivă, centrală, simetrică, rotundă">
                     </div>
                     <div class="form-group">
                         <label for="cristalin_os">Cristalin:</label>
@@ -126,8 +189,82 @@
 
         <div class="form-section">
             <h2>Examen Fund de Ochi</h2>
+            <div class="checkbox-group">
+                <input type="checkbox" id="foSameCheckbox" name="foSameCheckbox">
+                <label for="foSameCheckbox">Completează aceleași informații la ambii ochi</label>
+            </div>
             <div class="eye-section">
-                <div class="eye-column">
+                <div class="eye-column hidden" id="foaoAllFields">
+                    <h3>Ambii Ochi (AO)</h3>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="foaoCheckbox" name="foaoCheckbox">
+                        <label for="foaoCheckbox">Nu se vizualizează</label>
+                    </div>
+                    <div id="foaoFields">
+                        <div class="form-group">
+                            <label for="pno_ao">
+                                PNO (Papila Nervului Optic):
+                                <input type="checkbox" id="pno_other" name="pno_other">
+                                <label for="pno_other">Valoare diferită</label>
+                            </label>
+                            <input type="text" id="pno_ao" name="pno_ao" placeholder="PNO contur net, normal colorată">
+                        </div>
+                        <div class="form-group">
+                            <label for="cd_ao">
+                                C/D (Raport Cap/Disc):
+                                <input type="checkbox" id="cd_other" name="cd_other">
+                                <label for="cd_other">Valoare diferită</label>
+                            </label>
+                            <input type="text" id="cd_ao" name="cd_ao" placeholder="C/D - în limite fiziologice">
+                        </div>
+                        <div class="form-group">
+                            <label for="emergenta_vase_ao">
+                                Emergența vaselor:
+                                <input type="checkbox" id="emergenta_vase_other" name="emergenta_vase_other">
+                                <label for="emergenta_vase_other">Valoare diferită</label>
+                            </label>
+                            <input type="text" id="emergenta_vase_ao" name="emergenta_vase_ao" placeholder="vase emergente central">
+                        </div>
+                        <div class="form-group">
+                            <label for="calibru_vase_ao">
+                                Calibru vase:
+                                <input type="checkbox" id="calibru_vase_other" name="calibru_vase_other">
+                                <label for="calibru_vase_other">Valoare diferită</label>
+                            </label>
+                            <input type="text" id="calibru_vase_ao" name="calibru_vase_ao" placeholder="calibru normal">
+                        </div>
+                        <div class="form-group">
+                            <label for="macula_ao">
+                                Macula:
+                                <input type="checkbox" id="macula_other" name="macula_other">
+                                <label for="macula_other">Valoare diferită</label>
+                            </label>
+                            <input type="text" id="macula_ao" name="macula_ao" placeholder="maculă fără leziuni">
+                        </div>
+                        <div class="form-group">
+                            <label for="rf_ao">
+                                Reflex foveolar:
+                                <input type="checkbox" id="rf_other" name="rf_other">
+                                <label for="rf_other">Valoare diferită</label>
+                            </label>
+                            <select id="rf_ao" class="select-option">
+                                <option value="reflex foveolar prezent">Prezent</option>
+                                <option value="reflex foveolar absent">Absent</option>
+                                <option value="other">Altul (specificați)</option>
+                            </select>
+                            <input type="text" id="rf_ao_other" class="hidden" placeholder="Specificați reflexul foveolar">
+                        </div>
+                        <div class="form-group">
+                            <label for="periferie_ao">
+                                Periferie:
+                                <input type="checkbox" id="periferie_other" name="periferie_other">
+                                <label for="periferie_other">Valoare diferită</label>
+                            </label>
+                            <input type="text" id="periferie_ao" name="periferie_ao" placeholder="periferie fără leziuni">
+                        </div>
+                    </div>
+                </div>
+                <div class="eye-column" id="foodAllFields">
                     <h3>Ochi Drept (OD)</h3>
                     <div class="checkbox-group">
                         <input type="checkbox" id="foodCheckbox" name="foodCheckbox">
@@ -136,11 +273,11 @@
                     <div id="foodFields">
                         <div class="form-group">
                             <label for="pno_od">Papila Nervului Optic:</label>
-                            <input type="text" id="pno_od" name="pno_od" placeholder="PNO contur net, normal colorata">
+                            <input type="text" id="pno_od" name="pno_od" placeholder="PNO contur net, normal colorată">
                         </div>
                         <div class="form-group">
                             <label for="cd_od">C/D (Raport Cap/Disc):</label>
-                            <input type="text" id="cd_od" name="cd_od" placeholder="C/D - in limite fiziologice">
+                            <input type="text" id="cd_od" name="cd_od" placeholder="C/D - în limite fiziologice">
                         </div>
                         <div class="form-group">
                             <label for="emergenta_vase_od">Emergența vaselor:</label>
@@ -152,7 +289,7 @@
                         </div>
                         <div class="form-group">
                             <label for="macula_od">Macula:</label>
-                            <input type="text" id="macula_od" name="macula_od" placeholder="macula fara leziuni">
+                            <input type="text" id="macula_od" name="macula_od" placeholder="maculă fără leziuni">
                         </div>
                         <div class="form-group">
                             <label for="rf_od">Reflex foveolar:</label>
@@ -165,11 +302,11 @@
                         </div>
                         <div class="form-group">
                             <label for="periferie_od">Periferie:</label>
-                            <input type="text" id="periferie_od" name="periferie_od" placeholder="periferie fara leziuni">
+                            <input type="text" id="periferie_od" name="periferie_od" placeholder="periferie fără leziuni">
                         </div>
                     </div>
                 </div>
-                <div class="eye-column">
+                <div class="eye-column" id="foosAllFields">
                     <h3>Ochi Stâng (OS)</h3>
                     <div class="checkbox-group">
                         <input type="checkbox" id="foosCheckbox" name="foosCheckbox">
@@ -178,11 +315,11 @@
                     <div id="foosFields">
                         <div class="form-group">
                             <label for="pno_os">Papila Nervului Optic:</label>
-                            <input type="text" id="pno_os" name="pno_os" placeholder="PNO contur net, normal colorata">
+                            <input type="text" id="pno_os" name="pno_os" placeholder="PNO contur net, normal colorată">
                         </div>
                         <div class="form-group">
                             <label for="cd_os">C/D (Raport Cap/Disc):</label>
-                            <input type="text" id="cd_os" name="cd_os" placeholder="C/D - in limite fiziologice">
+                            <input type="text" id="cd_os" name="cd_os" placeholder="C/D - în limite fiziologice">
                         </div>
                         <div class="form-group">
                             <label for="emergenta_vase_os">Emergența vaselor:</label>
@@ -194,7 +331,7 @@
                         </div>
                         <div class="form-group">
                             <label for="macula_os">Macula:</label>
-                            <input type="text" id="macula_os" name="macula_os" placeholder="macula fara leziuni">
+                            <input type="text" id="macula_os" name="macula_os" placeholder="maculă fără leziuni">
                         </div>
                         <div class="form-group">
                             <label for="rf_os">Reflex foveolar:</label>
@@ -207,7 +344,7 @@
                         </div>
                         <div class="form-group">
                             <label for="periferie_os">Periferie:</label>
-                            <input type="text" id="periferie_os" name="periferie_os" placeholder="periferie fara leziuni">
+                            <input type="text" id="periferie_os" name="periferie_os" placeholder="periferie fără leziuni">
                         </div>
                     </div>
                 </div>
@@ -322,7 +459,6 @@
 
         <div class="form-section">
             <h2>Informații Intervenție</h2>
-
             <div class="form-group">
                 <label>Ochi operat:</label>
                 <div class="checkbox-group">
@@ -344,50 +480,53 @@
                 <textarea id="parcursInternare" name="parcursInternare" rows="3" placeholder="Descrieți procedura efectuată"></textarea>
             </div>
 
-            <div id="camputiOD" class="eye-fields hidden">
-                <h3>Ochi Drept (OD)</h3>
-                <div class="form-group">
-                    <label for="avOperatOD">AV OD:</label>
-                    <input type="text" id="avOperatOD" name="avOperatOD">
+            <div class="form-section-columns">
+                <div class="column eye-fields hidden" id="camputiOD">
+                    <h3>Ochi Drept (OD)</h3>
+                    <div class="form-group">
+                        <label for="avOperatOD">AV OD:</label>
+                        <input type="text" id="avOperatOD" name="avOperatOD">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="piOperatOD">PI OD:</label>
+                        <input type="text" id="piOperatOD" name="piOperatOD">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bmOperatOD">BM OD:</label>
+                        <input type="text" id="bmOperatOD" name="bmOperatOD">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foOperatOD">FO OD:</label>
+                        <input type="text" id="foOperatOD" name="foOperatOD">
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="piOperatOD">PI OD:</label>
-                    <input type="text" id="piOperatOD" name="piOperatOD">
+                <div class="column eye-fields hidden" id="camputiOS">
+                    <h3>Ochi Stâng (OS)</h3>
+                    <div class="form-group">
+                        <label for="avOperatOS">AV OS:</label>
+                        <input type="text" id="avOperatOS" name="avOperatOS">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="piOperatOS">PI OS:</label>
+                        <input type="text" id="piOperatOS" name="piOperatOS">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bmOperatOS">BM OS:</label>
+                        <input type="text" id="bmOperatOS" name="bmOperatOS">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foOperatOS">FO OS:</label>
+                        <input type="text" id="foOperatOS" name="foOperatOS">
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="bmOperatOD">BM OD:</label>
-                    <input type="text" id="bmOperatOD" name="bmOperatOD">
-                </div>
-
-                <div class="form-group">
-                    <label for="foOperatOD">FO OD:</label>
-                    <input type="text" id="foOperatOD" name="foOperatOD">
-                </div>
-            </div>
-
-            <div id="camputiOS" class="eye-fields hidden">
-                <h3>Ochi Stâng (OS)</h3>
-                <div class="form-group">
-                    <label for="avOperatOS">AV OS:</label>
-                    <input type="text" id="avOperatOS" name="avOperatOS">
-                </div>
-
-                <div class="form-group">
-                    <label for="piOperatOS">PI OS:</label>
-                    <input type="text" id="piOperatOS" name="piOperatOS">
-                </div>
-
-                <div class="form-group">
-                    <label for="bmOperatOS">BM OS:</label>
-                    <input type="text" id="bmOperatOS" name="bmOperatOS">
-                </div>
-
-                <div class="form-group">
-                    <label for="foOperatOS">FO OS:</label>
-                    <input type="text" id="foOperatOS" name="foOperatOS">
-                </div>
             </div>
         </div>
 
@@ -793,17 +932,17 @@
             </div>
         </div>
 
-        <button type="button" id="generateButton">Generează Formular de Externare</button>
+        <button type="button" id="generateButton" class="hidden">Generează Formular de Externare</button>
     </div>
 
     <div id="resultContainer" class="hidden">
         <h2>Formular de Externare</h2>
         <div id="resultContent"></div>
-        <div class="result-buttons">
+        <div class="result-buttons-container">
             <button type="button" id="downloadButton" class="result-buttons">Descarcă</button>
             <button type="button" id="copyButton" class="result-buttons">Copiază în clipboard</button>
             <button type="button" id="emailButton" class="result-buttons">Trimite e-mail</button>
-            <button type="button" id="printButton" class="result-buttons">Tipărește</button>
+            <button type="button" id="printButton" class="result-buttons">Print</button>
             <button type="button" id="backButton" class="result-buttons ">Înapoi la Formular</button>
         </div>
     </div>
