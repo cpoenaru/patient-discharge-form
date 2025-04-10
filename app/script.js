@@ -1,55 +1,27 @@
 // Set minimum date for control date to today
 window.addEventListener('DOMContentLoaded', function() {
     const today = new Date();
+
+    // Format date part
     const yyyy = today.getFullYear();
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const dd = String(today.getDate()).padStart(2, '0');
+
+    // Format time part
     const hh = String(today.getHours()).padStart(2, '0');
     const min = String(today.getMinutes()).padStart(2, '0');
-    document.getElementById('controlDate').min = `${yyyy}-${mm}-${dd}T${hh}:${min}`;
+
+    const formattedDateTime = `${yyyy}-${mm}-${dd}T${hh}:${min}`;
+    document.getElementById('controlDate').min = formattedDateTime;
 });
 
+// Toggle additional examination fields
 document.getElementById('foosCheckbox').addEventListener('change', function() {
     document.getElementById('foosFields').classList.toggle('hidden', this.checked);
 });
 
 document.getElementById('foodCheckbox').addEventListener('change', function() {
     document.getElementById('foodFields').classList.toggle('hidden', this.checked);
-});
-
-document.getElementById('foaoCheckbox').addEventListener('change', function() {
-    document.getElementById('foaoFields').classList.toggle('hidden', this.checked);
-});
-
-document.getElementById('foodSameCheckbox').addEventListener('change', function() {
-    if (this.checked) {
-        // Delete all values for FOOD / FOOS
-        const ids = [
-            "pno_ao", "cd_ao", "emergenta_vase_ao", "calibru_vase_ao", "macula_ao", "periferie_ao"
-        ]
-        for (let i = 0; i < ids.length; i++) {
-            document.getElementById(ids[i]).value = "";
-        }
-        document.getElementById('rf_ao').value = "reflex foveolar prezent"
-    }
-    else {
-        // Delete all values for FOAO
-        const ids = [
-            "pno_od", "cd_od", "emergenta_vase_od", "calibru_vase_od", "macula_od", "periferie_od",
-            "pno_os", "cd_os", "emergenta_vase_os", "calibru_vase_os", "macula_os", "periferie_os",
-        ]
-        for (let i = 0; i < ids.length; i++) {
-            document.getElementById(ids[i]).value = "";
-        }
-
-        document.getElementById('rf_od').value = "reflex foveolar prezent"
-        document.getElementById('rf_os').value = "reflex foveolar prezent"
-        document.getElementById('rf_od_other').value = ""
-        document.getElementById('rf_os_other').value = ""
-    }
-    document.getElementById('foaoAllFields').classList.toggle('hidden', !this.checked);
-    document.getElementById('foodAllFields').classList.toggle('hidden', this.checked);
-    document.getElementById('foosAllFields').classList.toggle('hidden', this.checked);
 });
 
 document.getElementById('octCheckbox').addEventListener('change', function() {
@@ -72,6 +44,7 @@ document.getElementById('ecoCheckbox').addEventListener('change', function() {
     document.getElementById('ecoFields').classList.toggle('hidden', !this.checked);
 });
 
+// Handle foveal reflex "other" option
 document.getElementById('rf_od').addEventListener('change', function() {
     document.getElementById('rf_od_other').classList.toggle('hidden', this.value !== 'other');
 });
@@ -80,14 +53,31 @@ document.getElementById('rf_os').addEventListener('change', function() {
     document.getElementById('rf_os_other').classList.toggle('hidden', this.value !== 'other');
 });
 
+// Handle operated eye selection
 document.getElementById('ochiOperatOD').addEventListener('change', function() {
     document.getElementById('camputiOD').classList.toggle('hidden', !this.checked);
-    document.getElementById('ochiOperatAO').checked = !!(this.checked && document.getElementById('ochiOperatOS').checked);
+
+    // Check if both OD and OS are now checked
+    if (this.checked && document.getElementById('ochiOperatOS').checked) {
+        // If both eyes are checked, also check "Ambii Ochi"
+        document.getElementById('ochiOperatAO').checked = true;
+    } else {
+        // If not both eyes are checked, uncheck "Ambii Ochi"
+        document.getElementById('ochiOperatAO').checked = false;
+    }
 });
 
 document.getElementById('ochiOperatOS').addEventListener('change', function() {
     document.getElementById('camputiOS').classList.toggle('hidden', !this.checked);
-    document.getElementById('ochiOperatAO').checked = !!(this.checked && document.getElementById('ochiOperatOD').checked);
+
+    // Check if both OD and OS are now checked
+    if (this.checked && document.getElementById('ochiOperatOD').checked) {
+        // If both eyes are checked, also check "Ambii Ochi"
+        document.getElementById('ochiOperatAO').checked = true;
+    } else {
+        // If not both eyes are checked, uncheck "Ambii Ochi"
+        document.getElementById('ochiOperatAO').checked = false;
+    }
 });
 
 document.getElementById('ochiOperatAO').addEventListener('change', function() {
@@ -174,7 +164,11 @@ document.getElementById('resetButton').addEventListener('click', function() {
 
         document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
             // Reset to default state
-            checkbox.checked = checkbox.id === 'restrictieGenerala';
+            if (checkbox.id === 'restrictieGenerala') {
+                checkbox.checked = true; // Only this one should be checked by default
+            } else {
+                checkbox.checked = false;
+            }
         });
 
         // Hide all conditional fields
@@ -327,76 +321,46 @@ function generateDischargeForm() {
     ];
 
     // Get fundus examination results
-    let foao = []
-    let food = []
-    let foos = []
-    let fundusSameValue = false;
-    if (document.getElementById('foodSameCheckbox').checked) {
-        fundusSameValue = true;
-        let rf_ao_value;
-        if (document.getElementById('rf_ao').value === 'other') {
-            rf_ao_value = document.getElementById('rf_ao_other').value;
-        } else {
-            rf_ao_value = document.getElementById('rf_ao').value;
-        }
-
-        // Handle C/D values - format as "C/D - [value]" if a value is entered
-        const cdAoValue = document.getElementById('cd_ao').value;
-
-        const cdOdFormatted = cdAoValue ? (cdAoValue.startsWith('C/D') ? cdAoValue : `C/D - ${cdAoValue}`) : 'C/D - in limite fiziologice';
-
-        foao = document.getElementById("foaoCheckbox").checked ? ["nu se vizualizează"] : [
-            document.getElementById('pno_ao').value || 'PNO contur net, normal colorata',
-            cdOdFormatted,
-            document.getElementById('emergenta_vase_ao').value || 'vase emergente central',
-            document.getElementById('calibru_vase_ao').value || 'calibru normal',
-            document.getElementById('macula_ao').value || 'macula fara leziuni',
-            rf_ao_value,
-            document.getElementById('periferie_ao').value || 'periferie fara leziuni'
-        ];
+    let rf_od_value;
+    if (document.getElementById('rf_od').value === 'other') {
+        rf_od_value = document.getElementById('rf_od_other').value;
+    } else {
+        rf_od_value = document.getElementById('rf_od').value;
     }
-    else {
-        let rf_od_value;
-        if (document.getElementById('rf_od').value === 'other') {
-            rf_od_value = document.getElementById('rf_od_other').value;
-        } else {
-            rf_od_value = document.getElementById('rf_od').value;
-        }
 
-        let rf_os_value;
-        if (document.getElementById('rf_os').value === 'other') {
-            rf_os_value = document.getElementById('rf_os_other').value;
-        } else {
-            rf_os_value = document.getElementById('rf_os').value;
-        }
-
-        // Handle C/D values - format as "C/D - [value]" if a value is entered
-        const cdOdValue = document.getElementById('cd_od').value;
-        const cdOsValue = document.getElementById('cd_os').value;
-
-        const cdOdFormatted = cdOdValue ? (cdOdValue.startsWith('C/D') ? cdOdValue : `C/D - ${cdOdValue}`) : 'C/D - in limite fiziologice';
-        const cdOsFormatted = cdOsValue ? (cdOsValue.startsWith('C/D') ? cdOsValue : `C/D - ${cdOsValue}`) : 'C/D - in limite fiziologice';
-
-        food = document.getElementById("foodCheckbox").checked ? ["nu se vizualizează"] : [
-            document.getElementById('pno_od').value || 'PNO contur net, normal colorata',
-            cdOdFormatted,
-            document.getElementById('emergenta_vase_od').value || 'vase emergente central',
-            document.getElementById('calibru_vase_od').value || 'calibru normal',
-            document.getElementById('macula_od').value || 'macula fara leziuni',
-            rf_od_value,
-            document.getElementById('periferie_od').value || 'periferie fara leziuni'
-        ];
-
-        foos = document.getElementById("foosCheckbox").checked ? ["nu se vizualizează"] : [
-            document.getElementById('pno_os').value || 'PNO contur net, normal colorata',
-            cdOsFormatted,
-            document.getElementById('emergenta_vase_os').value || 'vase emergente central',
-            document.getElementById('calibru_vase_os').value || 'calibru normal',
-            document.getElementById('macula_os').value || 'macula fara leziuni',
-            rf_os_value,
-            document.getElementById('periferie_os').value || 'periferie fara leziuni'
-        ];
+    let rf_os_value;
+    if (document.getElementById('rf_os').value === 'other') {
+        rf_os_value = document.getElementById('rf_os_other').value;
+    } else {
+        rf_os_value = document.getElementById('rf_os').value;
     }
+
+    // Handle C/D values - format as "C/D - [value]" if a value is entered
+    const cdOdValue = document.getElementById('cd_od').value;
+    const cdOsValue = document.getElementById('cd_os').value;
+
+    const cdOdFormatted = cdOdValue ? (cdOdValue.startsWith('C/D') ? cdOdValue : `C/D - ${cdOdValue}`) : 'C/D - in limite fiziologice';
+    const cdOsFormatted = cdOsValue ? (cdOsValue.startsWith('C/D') ? cdOsValue : `C/D - ${cdOsValue}`) : 'C/D - in limite fiziologice';
+
+    const food = document.getElementById("foodCheckbox").checked ? ["nu se vizualizează"] : [
+        document.getElementById('pno_od').value || 'PNO contur net, normal colorata',
+        cdOdFormatted,
+        document.getElementById('emergenta_vase_od').value || 'vase emergente central',
+        document.getElementById('calibru_vase_od').value || 'calibru normal',
+        document.getElementById('macula_od').value || 'macula fara leziuni',
+        rf_od_value,
+        document.getElementById('periferie_od').value || 'periferie fara leziuni'
+    ];
+
+    const foos = document.getElementById("foosCheckbox").checked ? ["nu se vizualizează"] : [
+        document.getElementById('pno_os').value || 'PNO contur net, normal colorata',
+        cdOsFormatted,
+        document.getElementById('emergenta_vase_os').value || 'vase emergente central',
+        document.getElementById('calibru_vase_os').value || 'calibru normal',
+        document.getElementById('macula_os').value || 'macula fara leziuni',
+        rf_os_value,
+        document.getElementById('periferie_os').value || 'periferie fara leziuni'
+    ];
 
     // Get additional examinations
     let oct_results = '';
@@ -463,27 +427,27 @@ function generateDischargeForm() {
 
     const ext = [];
     if (ochiOperatOD) {
-        const avodOp = document.getElementById('avOperatOD').value;
-        const piodOp = document.getElementById('piOperatOD').value;
-        const bmodOp = document.getElementById('bmOperatOD').value;
-        const foodOp = document.getElementById('foOperatOD').value;
+        const avod = document.getElementById('avOperatOD').value;
+        const piod = document.getElementById('piOperatOD').value;
+        const bmod = document.getElementById('bmOperatOD').value;
+        const food = document.getElementById('foOperatOD').value;
 
-        if (avodOp) ext.push('AVOD: ' + avodOp);
-        if (piodOp) ext.push('PIOD: ' + piodOp);
-        if (bmodOp) ext.push('BMOD: ' + bmodOp);
-        if (foodOp) ext.push('FOOD: ' + foodOp);
+        if (avod) ext.push('AVOD: ' + avod);
+        if (piod) ext.push('PIOD: ' + piod);
+        if (bmod) ext.push('BMOD: ' + bmod);
+        if (food) ext.push('FOOD: ' + food);
     }
 
     if (ochiOperatOS) {
-        const avosOp = document.getElementById('avOperatOS').value;
-        const piosOp = document.getElementById('piOperatOS').value;
-        const bmosOp = document.getElementById('bmOperatOS').value;
-        const foosOp = document.getElementById('foOperatOS').value;
+        const avos = document.getElementById('avOperatOS').value;
+        const pios = document.getElementById('piOperatOS').value;
+        const bmos = document.getElementById('bmOperatOS').value;
+        const foos = document.getElementById('foOperatOS').value;
 
-        if (avosOp) ext.push('AVOS: ' + avosOp);
-        if (piosOp) ext.push('PIOS: ' + piosOp);
-        if (bmosOp) ext.push('BMOS: ' + bmosOp);
-        if (foosOp) ext.push('FOOS: ' + foosOp);
+        if (avos) ext.push('AVOS: ' + avos);
+        if (pios) ext.push('PIOS: ' + pios);
+        if (bmos) ext.push('BMOS: ' + bmos);
+        if (foos) ext.push('FOOS: ' + foos);
     }
 
     // Get recommendations
@@ -580,15 +544,11 @@ function generateDischargeForm() {
     // Comma-separated biomicroscopy values for OS
     resultContent += `EXAMEN BIOMICROSCOPIC OS: ${bmos.join(', ')}\n\n`;
 
-    if (fundusSameValue) {
-        // Both fundus the same
-        resultContent += `FUND DE OCHI AO: ${foao.join(', ')}\n\n`
-    }
-    else {
-        // Comma-separated fundus examination values for OD & OS
-        resultContent += `FUND DE OCHI OD: ${food.join(', ')}\n\n`;
-        resultContent += `FUND DE OCHI OS: ${foos.join(', ')}\n\n`;
-    }
+    // Comma-separated fundus examination values for OD
+    resultContent += `FUND DE OCHI OD: ${food.join(', ')}\n\n`;
+
+    // Comma-separated fundus examination values for OS
+    resultContent += `FUND DE OCHI OS: ${foos.join(', ')}\n\n`;
 
     // Add additional examinations if performed
     if (oct_results) {
@@ -662,6 +622,7 @@ document.getElementById('printButton').addEventListener('click', function() {
 document.getElementById('downloadButton').addEventListener('click', function() {
     const name = document.getElementById('numePrenume').value.replace(' ', '_');
     const textToDownload = document.getElementById('resultContent').textContent;
+    console.log(`name: ${name}\ntextToDownload: ${textToDownload}`)
     const link = document.createElement('a');
     const file = new Blob([textToDownload], { type: 'text/plain'});
     link.href = URL.createObjectURL(file);
@@ -669,6 +630,7 @@ document.getElementById('downloadButton').addEventListener('click', function() {
     link.click()
     URL.revokeObjectURL(link.href);
 });
+
 
 // Copy to clipboard button
 document.getElementById('copyButton').addEventListener('click', function() {
@@ -703,6 +665,7 @@ document.getElementById('emailButton').addEventListener('click', function() {
 document.getElementById('backButton').addEventListener('click', function() {
     document.getElementById('formContainer').classList.remove('hidden');
     document.getElementById('resultContainer').classList.add('hidden');
+
     // Show the sticky buttons again when returning to the form
     document.querySelector('.sticky-buttons').classList.remove('hidden');
 });
