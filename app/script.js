@@ -593,7 +593,9 @@ function generateDischargeForm() {
         treatNumber++;
     }
 
-    resultContent += `\n\n${controlDateText}`;
+    if (controlDateText) {
+        resultContent += `\n\n${controlDateText}`;
+    }
 
     // Display the result
     document.getElementById('resultContent').textContent = resultContent;
@@ -615,6 +617,20 @@ document.getElementById('printButton').addEventListener('click', function() {
     // Print only the externare section
     window.print();
 });
+
+// Download button
+document.getElementById('downloadButton').addEventListener('click', function() {
+    const name = document.getElementById('numePrenume').value.replace(' ', '_');
+    const textToDownload = document.getElementById('resultContent').textContent;
+    console.log(`name: ${name}\ntextToDownload: ${textToDownload}`)
+    const link = document.createElement('a');
+    const file = new Blob([textToDownload], { type: 'text/plain'});
+    link.href = URL.createObjectURL(file);
+    link.download = `externare_${name}`;
+    link.click()
+    URL.revokeObjectURL(link.href);
+});
+
 
 // Copy to clipboard button
 document.getElementById('copyButton').addEventListener('click', function() {
@@ -638,6 +654,7 @@ document.getElementById('copyButton').addEventListener('click', function() {
     });
 });
 
+// email button
 document.getElementById('emailButton').addEventListener('click', function() {
     const emailSubject = encodeURIComponent("Externare " + document.getElementById('numePrenume').value);
     const emailBody = encodeURIComponent(document.getElementById('resultContent').textContent);

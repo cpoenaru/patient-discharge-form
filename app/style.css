@@ -252,13 +252,20 @@ input:invalid, textarea:invalid {
 }
 
 .result-buttons {
-    margin-top: 20px;
+    margin-top: 5px;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    z-index: 100;
 }
 
 .result-buttons button {
     margin-right: 15px;
     padding: 12px 20px;
     font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 #printButton {
@@ -275,6 +282,10 @@ input:invalid, textarea:invalid {
 
 #emailButton {
     background-color: #4285f4;
+}
+
+#downloadButton {
+    background-color: #5cb85c;
 }
 
 /* Print styles */
