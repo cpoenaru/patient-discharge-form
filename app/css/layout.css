@@ -1,0 +1,101 @@
+/* Grid layouts */
+.form-section-columns {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.column {
+  flex: 1;
+  min-width: 0;
+}
+
+.eye-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.eye-column {
+  flex: 1;
+  min-width: 300px;
+  padding: 1.25rem;
+  background-color: var(--field-bg);
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+/* Biomicroscopic examination specific styles */
+#bmaoAllFields .form-group label {
+  display: grid;
+  grid-template-columns: minmax(180px, auto) auto 1fr;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#bmaoAllFields .form-group label label {
+  vertical-align: middle;
+  display: inline-block;
+  margin-bottom: 0;
+  font-style: italic;
+  color: var(--secondary-text);
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+#bmaoAllFields .form-group label input[type="checkbox"] {
+  justify-self: end;
+  margin: 0;
+}
+
+#bmaoAllFields .form-group input[type="text"] {
+  grid-column: 1 / span 3;
+  margin-top: 0.5rem;
+}
+
+/* Fundus examination specific styles */
+#foaoAllFields .form-group label {
+  display: grid;
+  grid-template-columns: minmax(180px, auto) auto 1fr;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#foaoAllFields .form-group label label {
+  vertical-align: middle;
+  display: inline-block;
+  margin-bottom: 0;
+  font-style: italic;
+  color: var(--secondary-text);
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+#foaoAllFields .form-group label input[type="checkbox"] {
+  justify-self: end;
+  margin: 0;
+}
+
+#foaoAllFields .form-group input[type="text"] {
+  grid-column: 1 / span 3;
+  margin-top: 0.5rem;
+}
+
+/* Treatment section styling */
+.treatment-section {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.treatment-details {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0.5rem 1.75rem;
+}
+
+.treatment-details span {
+  font-size: 0.95rem;
+  color: var(--secondary-text);
+}
