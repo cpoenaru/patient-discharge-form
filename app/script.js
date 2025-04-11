@@ -932,10 +932,17 @@ function getBiomicroscopicResults() {
             }
 
             if (odSpecificContent.length > 0) {
-                resultText += `EXAMEN BIOMICROSCOPIC OD: ${odSpecificContent.join(', ')}\n`;
+                if (commonFields.length > 0) {
+                    resultText += `OD: ${odSpecificContent.join(', ')}\n\n`;
+                } else {
+                    resultText += `EXAMEN BIOMICROSCOPIC OD: ${odSpecificContent.join(', ')}\n`;
+                }
             }
 
             if (osSpecificContent.length > 0) {
+                if (commonFields.length > 0){
+                resultText += `OS: ${osSpecificContent.join(', ')}\n\n`;}
+            } else {
                 resultText += `EXAMEN BIOMICROSCOPIC OS: ${osSpecificContent.join(', ')}\n`;
             }
 
