@@ -933,7 +933,7 @@ function getBiomicroscopicResults() {
 
             if (odSpecificContent.length > 0) {
                 if (commonFields.length > 0) {
-                    resultText += `OD: ${odSpecificContent.join(', ')}\n\n`;
+                    resultText += `OD: ${odSpecificContent.join(', ')}\n`;
                 } else {
                     resultText += `EXAMEN BIOMICROSCOPIC OD: ${odSpecificContent.join(', ')}\n`;
                 }
@@ -941,7 +941,7 @@ function getBiomicroscopicResults() {
 
             if (osSpecificContent.length > 0) {
                 if (commonFields.length > 0){
-                resultText += `OS: ${osSpecificContent.join(', ')}\n\n`;}
+                resultText += `OS: ${osSpecificContent.join(', ')}\n`;}
             } else {
                 resultText += `EXAMEN BIOMICROSCOPIC OS: ${osSpecificContent.join(', ')}\n`;
             }
