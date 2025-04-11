@@ -123,6 +123,10 @@ function generateDischargeForm() {
         resultContent += `${additionalExams.eco_results}\n\n`;
     }
 
+    if (additionalExams.gonio_results) {
+        resultContent += `${additionalExams.gonio_results}\n\n`;
+    }
+
     // Add PC internare section only if there is a procedure description
     if (surgicalInfo.parcursInternare) {
         resultContent += `${surgicalInfo.parcursInternare}\n\n`;

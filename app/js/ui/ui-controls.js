@@ -47,6 +47,10 @@ function addExaminationToggleListeners() {
     document.getElementById('ecoCheckbox').addEventListener('change', function() {
         document.getElementById('ecoFields').classList.toggle('hidden', !this.checked);
     });
+
+    document.getElementById('gonioscopieCheckbox').addEventListener('change', function() {
+        document.getElementById('gonioscopieFields').classList.toggle('hidden', !this.checked);
+    });
 }
 
 /**

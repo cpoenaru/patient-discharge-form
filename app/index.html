@@ -355,7 +355,6 @@
             <h2>Examinări Suplimentare</h2>
 
             <div class="form-group">
-                <label>OCT:</label>
                 <div class="checkbox-group">
                     <input type="checkbox" id="octCheckbox" name="octCheckbox">
                     <label for="octCheckbox">OCT Efectuat</label>
@@ -409,10 +408,9 @@
             </div>
 
             <div class="form-group">
-                <label>Câmp Vizual (CV):</label>
                 <div class="checkbox-group">
                     <input type="checkbox" id="cvCheckbox" name="cvCheckbox">
-                    <label for="cvCheckbox">CV Efectuat</label>
+                    <label for="cvCheckbox">CV Efectuat (Câmp Vizual)</label>
                 </div>
                 <div id="cvFields" class="hidden">
                     <div class="eye-section">
@@ -433,7 +431,6 @@
             </div>
 
             <div class="form-group">
-                <label>Ecografie (Eco):</label>
                 <div class="checkbox-group">
                     <input type="checkbox" id="ecoCheckbox" name="ecoCheckbox">
                     <label for="ecoCheckbox">Eco Efectuat</label>
@@ -455,6 +452,29 @@
                     </div>
                 </div>
             </div>
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="gonioscopieCheckbox" name="gonioscopieCheckbox">
+                    <label for="gonioscopieCheckbox">Gonnioscopie efectuată</label>
+                </div>
+                <div id="gonioscopieFields" class="hidden">
+                    <div class="eye-section">
+                        <div class="eye-column">
+                            <div class="form-group">
+                                <label for="gonioscopie_od">Gonioscopie OD:</label>
+                                <textarea id="gonioscopie_od" name="gonioscopie_od" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <div class="eye-column">
+                            <div class="form-group">
+                                <label for="gonioscopie_os">Gonioscopie OS:</label>
+                                <textarea id="gonioscopie_os" name="gonioscopie_os" rows="2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <div class="form-section">
