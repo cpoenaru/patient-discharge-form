@@ -130,24 +130,24 @@ function handleDifferentValue(fieldName, isChecked) {
         // Show the "diferențe" column
         document.getElementById('bmDifferentValuesColumn').classList.remove('hidden');
 
-        // Change the label text to indicate it's for OS only
-        document.querySelector(`label[for="${fieldName}_ao"]`).childNodes[0].nodeValue = `${getFieldLabel(fieldName)} OS:`;
+        // Change the label text to indicate it's for OD only
+        document.querySelector(`label[for="${fieldName}_ao"]`).childNodes[0].nodeValue = `${getFieldLabel(fieldName)} OD:`;
 
         // Check if we already have a form field for this difference
-        if (!document.getElementById(fieldId + '_od')) {
+        if (!document.getElementById(fieldId + '_os')) {
             // Create form fields for OD
             const formGroup = document.createElement('div');
             formGroup.className = 'form-group';
             formGroup.id = fieldId + '_container';
 
             const label = document.createElement('label');
-            label.setAttribute('for', fieldId + '_od');
-            label.textContent = `${getFieldLabel(fieldName)} OD:`;
+            label.setAttribute('for', fieldId + '_os');
+            label.textContent = `${getFieldLabel(fieldName)} OS:`;
 
             const input = document.createElement('input');
             input.type = 'text';
-            input.id = fieldId + '_od';
-            input.name = fieldId + '_od';
+            input.id = fieldId + '_os';
+            input.name = fieldId + '_os';
             input.placeholder = getDefaultValue(fieldName);
 
             formGroup.appendChild(label);
@@ -327,24 +327,24 @@ function handleFundusDifferentValue(fieldName, isChecked) {
         // Show the "diferențe" column
         document.getElementById('foDifferentValuesColumn').classList.remove('hidden');
 
-        // Change the label text to indicate it's for OS only
-        document.querySelector(`label[for="${fieldName}_ao"]`).childNodes[0].nodeValue = `${getFundusFieldLabel(fieldName)} OS:`;
+        // Change the label text to indicate it's for OD only
+        document.querySelector(`label[for="${fieldName}_ao"]`).childNodes[0].nodeValue = `${getFundusFieldLabel(fieldName)} OD:`;
 
         // Check if we already have a form field for this difference
-        if (!document.getElementById(fieldId + '_od')) {
-            // Create form fields for OD
+        if (!document.getElementById(fieldId + '_os')) {
+            // Create form fields for OS
             const formGroup = document.createElement('div');
             formGroup.className = 'form-group';
             formGroup.id = fieldId + '_container';
 
             const label = document.createElement('label');
-            label.setAttribute('for', fieldId + '_od');
-            label.textContent = `${getFundusFieldLabel(fieldName)} OD:`;
+            label.setAttribute('for', fieldId + '_os');
+            label.textContent = `${getFundusFieldLabel(fieldName)} OS:`;
 
             const input = document.createElement('input');
             input.type = 'text';
-            input.id = fieldId + '_od';
-            input.name = fieldId + '_od';
+            input.id = fieldId + '_os';
+            input.name = fieldId + '_os';
             input.placeholder = getFundusDefaultValue(fieldName);
 
             formGroup.appendChild(label);
@@ -384,23 +384,23 @@ function handleReflexFoveolarDifferentValue(isChecked) {
         // Show the "diferențe" column
         document.getElementById('foDifferentValuesColumn').classList.remove('hidden');
 
-        // Change the label text to indicate it's for OS only
-        document.querySelector('label[for="rf_ao"]').childNodes[0].nodeValue = `Reflex foveolar OS:`;
+        // Change the label text to indicate it's for OD only
+        document.querySelector('label[for="rf_ao"]').childNodes[0].nodeValue = `Reflex foveolar OD:`;
 
         // Check if we already have a form field for this difference
-        if (!document.getElementById(fieldId + '_od_container')) {
-            // Create form fields for OD
+        if (!document.getElementById(fieldId + '_os_container')) {
+            // Create form fields for OS
             const formGroup = document.createElement('div');
             formGroup.className = 'form-group';
-            formGroup.id = fieldId + '_od_container';
+            formGroup.id = fieldId + '_os_container';
 
             const label = document.createElement('label');
-            label.setAttribute('for', fieldId + '_od');
-            label.textContent = `Reflex foveolar OD:`;
+            label.setAttribute('for', fieldId + '_os');
+            label.textContent = `Reflex foveolar OS:`;
 
             // Create select element
             const select = document.createElement('select');
-            select.id = fieldId + '_od';
+            select.id = fieldId + '_os';
             select.className = 'select-option';
 
             // Add options
@@ -420,7 +420,7 @@ function handleReflexFoveolarDifferentValue(isChecked) {
             // Create the "other" input field
             const otherInput = document.createElement('input');
             otherInput.type = 'text';
-            otherInput.id = fieldId + '_od_other';
+            otherInput.id = fieldId + '_os_other';
             otherInput.className = 'hidden';
             otherInput.placeholder = 'Specificați reflexul foveolar';
 
@@ -435,14 +435,14 @@ function handleReflexFoveolarDifferentValue(isChecked) {
             container.appendChild(formGroup);
         } else {
             // Just make it visible if it already exists
-            document.getElementById(fieldId + '_od_container').classList.remove('hidden');
+            document.getElementById(fieldId + '_os_container').classList.remove('hidden');
         }
     } else {
         // Change the label text back to normal
         document.querySelector('label[for="rf_ao"]').childNodes[0].nodeValue = `Reflex foveolar:`;
 
         // Hide the specific field's form group if it exists
-        const formGroup = document.getElementById(fieldId + '_od_container');
+        const formGroup = document.getElementById(fieldId + '_os_container');
         if (formGroup) {
             formGroup.classList.add('hidden');
         }
@@ -924,18 +924,25 @@ function getBiomicroscopicResults() {
                 const fieldName = bmDifferentFields[i];
                 const fieldDisplayName = fieldNameMap[fieldName] || fieldName;
 
-                const odValue = document.getElementById(fieldName + '_different_od').value || getDefaultValue(fieldName);
-                const osValue = document.getElementById(fieldName + '_ao').value || getDefaultValue(fieldName);
+                const odValue = document.getElementById(fieldName + '_ao').value || getDefaultValue(fieldName);
+                const osValue = document.getElementById(fieldName + '_different_os').value || getDefaultValue(fieldName);
 
                 odSpecificContent.push(`${fieldDisplayName} ${odValue}`);
                 osSpecificContent.push(`${fieldDisplayName} ${osValue}`);
             }
 
             if (odSpecificContent.length > 0) {
-                resultText += `EXAMEN BIOMICROSCOPIC OD: ${odSpecificContent.join(', ')}\n`;
+                if (commonFields.length > 0) {
+                    resultText += `OD: ${odSpecificContent.join(', ')}\n`;
+                } else {
+                    resultText += `EXAMEN BIOMICROSCOPIC OD: ${odSpecificContent.join(', ')}\n`;
+                }
             }
 
             if (osSpecificContent.length > 0) {
+                if (commonFields.length > 0){
+                resultText += `OS: ${osSpecificContent.join(', ')}\n`;}
+            } else {
                 resultText += `EXAMEN BIOMICROSCOPIC OS: ${osSpecificContent.join(', ')}\n`;
             }
 
@@ -1041,39 +1048,32 @@ function getFundusResults() {
                     'periferie': 'periferie'
                 };
 
-                // Get the different values for OD
+                // Get the different values for OD and OS
                 const differentFieldsOD = [];
+                const differentFieldsOS = [];
+
                 for (const field of foDifferentFields) {
                     if (field === 'rf') {
-                        // Special handling for reflex foveolar in OD
+                        // Special handling for reflex foveolar
                         let rf_od_value;
-                        if (document.getElementById('rf_different_od').value === 'other') {
-                            rf_od_value = document.getElementById('rf_different_od_other').value;
+                        if (document.getElementById('rf_ao').value === 'other') {
+                            rf_od_value = document.getElementById('rf_ao_other').value;
                         } else {
-                            rf_od_value = document.getElementById('rf_different_od').value;
+                            rf_od_value = document.getElementById('rf_ao').value;
                         }
                         differentFieldsOD.push(rf_od_value);
-                    } else {
-                        const defaultValue = getFundusDefaultValue(field);
-                        differentFieldsOD.push(document.getElementById(field + '_different_od').value || defaultValue);
-                    }
-                }
 
-                // Get the different values for OS
-                const differentFieldsOS = [];
-                for (const field of foDifferentFields) {
-                    if (field === 'rf') {
-                        // Special handling for reflex foveolar in OS (which is the original AO field)
                         let rf_os_value;
-                        if (document.getElementById('rf_ao').value === 'other') {
-                            rf_os_value = document.getElementById('rf_ao_other').value;
+                        if (document.getElementById('rf_different_os').value === 'other') {
+                            rf_os_value = document.getElementById('rf_different_os_other').value;
                         } else {
-                            rf_os_value = document.getElementById('rf_ao').value;
+                            rf_os_value = document.getElementById('rf_different_os').value;
                         }
                         differentFieldsOS.push(rf_os_value);
                     } else {
                         const defaultValue = getFundusDefaultValue(field);
-                        differentFieldsOS.push(document.getElementById(field + '_ao').value || defaultValue);
+                        differentFieldsOD.push(document.getElementById(field + '_ao').value || defaultValue);
+                        differentFieldsOS.push(document.getElementById(field + '_different_os').value || defaultValue);
                     }
                 }
 
