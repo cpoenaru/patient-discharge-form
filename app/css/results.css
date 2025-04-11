@@ -1,0 +1,16 @@
+/* Result container */
+#resultContainer {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--dark-color);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+#resultContent {
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  /* Fix for all content being on one line */
+  white-space: pre-wrap;
+}

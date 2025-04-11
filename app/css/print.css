@@ -1,0 +1,32 @@
+/* Print styles */
+@media print {
+  body {
+    font-size: 12pt;
+    background: white;
+    color: black;
+  }
+
+  #formContainer, .form-section, #resultContainer {
+    box-shadow: none;
+    border: none;
+    background: white;
+    color: black;
+  }
+
+  #resultContent {
+    color: black;
+  }
+
+  .sticky-buttons, .github-link, #generateButton, .add-recommendation, .result-buttons {
+    display: none !important;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+    color: black;
+  }
+
+  .form-section {
+    page-break-inside: avoid;
+  }
+}

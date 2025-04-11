@@ -1,0 +1,18 @@
+/* GitHub link */
+.github-link {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 100;
+}
+
+.github-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: #333;
+  transition: fill 0.2s ease;
+}
+
+.github-icon:hover {
+  fill: var(--primary-color);
+}

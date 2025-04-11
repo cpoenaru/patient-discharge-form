@@ -1,0 +1,119 @@
+/* Form elements */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group:has(#controlDate) {
+  margin-bottom: 100px; /* Add extra space below the date control */
+  position: relative;
+  z-index: 10; /* Make the date control appear above the sticky buttons */
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--secondary-text);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="datetime-local"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="datetime-local"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary-color);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+input[type="datetime-local"] {
+  position: relative;
+  z-index: 15;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--input-placeholder);
+  opacity: 0.8;
+}
+
+.small-input {
+  width: 60px !important;
+  padding: 0.5rem;
+  text-align: center;
+  display: inline-block;
+}
+
+.required {
+  color: var(--danger-color);
+  margin-left: 0.25rem;
+}
+
+/* Checkbox styling */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 0.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+}
+
+.checkbox-group label {
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+/* Validation and error styles */
+.input-error {
+  border-color: var(--danger-color);
+  box-shadow: 0 0 0 1px var(--danger-color);
+}
+
+.error-message {
+  color: var(--danger-color);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+input:focus, select:focus, textarea:focus, button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Validation message */
+#validationMessage {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--danger-color);
+  color: white;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+}
