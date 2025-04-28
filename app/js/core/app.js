@@ -45,6 +45,7 @@ function addAllEventListeners() {
 
     // Additional examinations toggles
     addExaminationToggleListeners();
+    addAdditionalExamsListeners();
 
     // Reflex foveolar selects
     addReflexFoveolarListeners();

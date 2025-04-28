@@ -434,11 +434,11 @@ function getFundusResults() {
                 }
 
                 if (differentFieldsOD.length > 0) {
-                    resultText += `FUND DE OCHI OD: ${differentFieldsOD.join(', ')}\n`;
+                    resultText += `OD: ${differentFieldsOD.join(', ')}\n`;
                 }
 
                 if (differentFieldsOS.length > 0) {
-                    resultText += `FUND DE OCHI OS: ${differentFieldsOS.join(', ')}\n`;
+                    resultText += `OS: ${differentFieldsOS.join(', ')}\n`;
                 }
 
                 resultText += `\n`;
