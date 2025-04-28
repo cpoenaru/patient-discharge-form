@@ -12,6 +12,7 @@ function getAdditionalExaminations() {
     let oct_results = '';
     let cv_results = '';
     let eco_results = '';
+    let gonio_results = ''
 
     if (document.getElementById('octCheckbox').checked) {
         let has_oct_data = false;
@@ -51,7 +52,13 @@ function getAdditionalExaminations() {
         eco_results = `Eco OD: ${eco_od}\nEco OS: ${eco_os}`;
     }
 
-    return { oct_results, cv_results, eco_results };
+    if (document.getElementById('gonioscopieCheckbox').checked) {
+        const gonio_od = document.getElementById('gonioscopie_od').value;
+        const gonio_os = document.getElementById('gonioscopie_os').value;
+        gonio_results = `Gonioscopie OD: ${gonio_od}\nGonioscopie OS: ${gonio_os}`;
+    }
+
+    return { oct_results, cv_results, eco_results, gonio_results };
 }
 
 /**
