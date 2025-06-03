@@ -10,7 +10,6 @@
  * Validate required fields and generate form if valid
  */
 function validateAndGenerateForm() {
-    // Clear any previous error states
     document.querySelectorAll('.input-error').forEach(el => {
         el.classList.remove('input-error');
     });
@@ -19,7 +18,6 @@ function validateAndGenerateForm() {
         el.remove();
     });
 
-    // Check required fields
     const numePrenume = document.getElementById('numePrenume');
     const istoric = document.getElementById('istoric');
 
@@ -35,7 +33,6 @@ function validateAndGenerateForm() {
         isValid = false;
     }
 
-    // If validation failed, scroll to the first error
     if (!isValid) {
         const firstError = document.querySelector('.input-error, .error-message');
         if (firstError) {
@@ -44,7 +41,6 @@ function validateAndGenerateForm() {
         return;
     }
 
-    // If validation passed, continue with form generation
     generateDischargeForm();
 }
 
@@ -92,25 +88,19 @@ function generateDischargeForm() {
     const recommendations = getRecommendations();
     const treatments = getTreatments(surgicalInfo.ochiOperat);
 
-    // Format the control date
     const controlDateText = formatControlDate();
 
-    // Generate the discharge form
     let resultContent = `EXTERNARE ${numePrenumeValue}\n\n`;
     resultContent += `${istoricValue}\n\n`;
 
-    // Add eye measurements
     if (eyeMeasurements.length > 0) {
         resultContent += eyeMeasurements.join('\n') + '\n\n';
     }
 
-    // Add biomicroscopic results
     resultContent += biomicroscopicResults;
 
-    // Add fundus results
     resultContent += fundusResults;
 
-    // Add additional examinations if performed
     if (additionalExams.oct_results) {
         resultContent += `${additionalExams.oct_results}\n\n`;
     }
@@ -127,19 +117,16 @@ function generateDischargeForm() {
         resultContent += `${additionalExams.gonio_results}\n\n`;
     }
 
-    // Add PC internare section only if there is a procedure description
     if (surgicalInfo.parcursInternare) {
         resultContent += `${surgicalInfo.parcursInternare}\n\n`;
     }
 
-    // Add LA EXTERNARE section only if there is surgical information
     if (surgicalInfo.ext.length > 0 && surgicalInfo.ochiOperat) {
         resultContent += `LA EXTERNARE:\n${surgicalInfo.ext.join('\n')}\n\n`;
     }
 
     resultContent += `RECOMANDĂRI:\n`;
 
-    // Number the recommendations
     let recNumber = 1;
     for (const rec of recommendations) {
         resultContent += `${recNumber}. ${rec}\n`;
@@ -150,7 +137,6 @@ function generateDischargeForm() {
         resultContent += `\nTratament conform rețetei cu:\n`;
     }
 
-    // Number the treatments too
     let treatNumber = 1;
     for (const treatment of treatments) {
         resultContent += `${treatNumber}. ${treatment}\n`;
@@ -161,14 +147,11 @@ function generateDischargeForm() {
         resultContent += `\n\n${controlDateText}`;
     }
 
-    // Display the result
     document.getElementById('resultContent').textContent = resultContent;
     document.getElementById('formContainer').classList.add('hidden');
     document.getElementById('resultContainer').classList.remove('hidden');
 
-    // Hide the sticky buttons when showing results
     document.querySelector('.sticky-buttons').classList.add('hidden');
 
-    // Scroll to the top of the result container
     document.getElementById('resultContainer').scrollIntoView({behavior: 'smooth', block: 'start'});
 }

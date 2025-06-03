@@ -223,7 +223,7 @@ function getSurgicalInformation() {
         const foodOp = document.getElementById('foOperatOD').value;
 
         if (avodOp) ext.push('AVOD: ' + avodOp);
-        if (piodOp) ext.push('PIOD: ' + piodOp);
+        if (piodOp) ext.push('PIOD: ' + (piodOp.toLowerCase().endsWith('mmhg') ? piodOp : piodOp + ' mmHg'));
         if (bmodOp) ext.push('BMOD: ' + bmodOp);
         if (foodOp) ext.push('FOOD: ' + foodOp);
     }
@@ -235,7 +235,7 @@ function getSurgicalInformation() {
         const foosOp = document.getElementById('foOperatOS').value;
 
         if (avosOp) ext.push('AVOS: ' + avosOp);
-        if (piosOp) ext.push('PIOS: ' + piosOp);
+        if (piosOp) ext.push('PIOS: ' + (piosOp.toLowerCase().endsWith('mmhg') ? piosOp : piosOp + ' mmHg'));
         if (bmosOp) ext.push('BMOS: ' + bmosOp);
         if (foosOp) ext.push('FOOS: ' + foosOp);
     }
