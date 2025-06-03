@@ -99,3 +99,40 @@
   font-size: 0.95rem;
   color: var(--secondary-text);
 }
+
+.inline-checkbox-group label {
+  display: grid;
+  grid-template-columns: minmax(180px, auto) max-content max-content;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.inline-checkbox-group label input[type="checkbox"] {
+  justify-self: start;
+  margin: 0;
+}
+
+.inline-checkbox-group label label {
+  justify-self: start;
+  display: inline-block;
+  margin-bottom: 0;
+  margin-left: 0.15rem;
+  font-style: italic;
+  color: var(--secondary-text);
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.inline-inputs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.inline-inputs input[type="text"] {
+  flex: 1;
+}
+
+.inline-inputs label {
+  margin-bottom: 0;
+  display: block;
+}

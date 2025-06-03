@@ -8,6 +8,18 @@
 // =============== VISION & EXAMINATION TOGGLES ===============
 
 /**
+ * Add event listeners for patient information
+ */
+function addPatientInfoToggleListeners() {
+    document.getElementById('pios_tratament_checkbox').addEventListener('change', function() {
+        document.getElementById('pios_tratament').classList.toggle('hidden', !this.checked);
+    });
+    document.getElementById('piod_tratament_checkbox').addEventListener('change', function() {
+        document.getElementById('piod_tratament').classList.toggle('hidden', !this.checked);
+    })
+}
+
+/**
  * Add event listeners for vision/visualization toggles
  */
 function addVisionToggleListeners() {
@@ -93,6 +105,10 @@ function getEyeMeasurements() {
     const avodValue = document.getElementById('avod').value;
     const avosValue = document.getElementById('avos').value;
     const piodValue = document.getElementById('piod').value;
+    const piodTreatmentChecked = document.getElementById('piod_tratament_checkbox').value;
+    const piosTreatmentChecked = document.getElementById('piod_tratament_checkbox').value;
+    const piodTreatment = piodTreatmentChecked ? document.getElementById('piod_tratament').value : '';
+    const piosTreatment = piosTreatmentChecked ? document.getElementById('pios_tratament').value : '';
     const piosValue = document.getElementById('pios').value;
     const pleoapaodValue = document.getElementById('pleoapaod').value;
     const pleoapaosValue = document.getElementById('pleoapaos').value;
@@ -100,8 +116,8 @@ function getEyeMeasurements() {
     // Only include values that are not empty, omit the FC/CC identifier
     const avod = avodValue ? 'AVOD: ' + avodValue : '';
     const avos = avosValue ? 'AVOS: ' + avosValue : '';
-    const piod = piodValue ? 'PIOD: ' + piodValue + ' mmHg' : '';
-    const pios = piosValue ? 'PIOS: ' + piosValue + ' mmHg' : '';
+    let piod = !piodValue ? '' : 'PIOD: ' + piodValue + ' mmHg' + (!piodTreatment ? '' : ` sub tratament ${piodTreatment}`);
+    let pios = !piosValue ? '': 'PIOS: ' + piosValue + ' mmHg' + (!piosTreatment ? '' : ` sub tratament ${piosTreatment}`);
     const pleoapaod = pleoapaodValue ? 'Pleoapa OD: ' + pleoapaodValue : '';
     const pleoapaos = pleoapaosValue ? 'Pleoapa OS: ' + pleoapaosValue : '';
 

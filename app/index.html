@@ -14,39 +14,57 @@
         <div class="form-section">
             <h2>Informații Pacient</h2>
             <div class="form-group">
-                <label for="numePrenume">Nume și prenume pacient: <span class="required">*</span></label>
+                <label for="numePrenume">Nume și prenume: <span class="required">*</span></label>
                 <input type="text" id="numePrenume" name="numePrenume" required>
             </div>
             <div class="form-group">
-                <label for="istoric">Istoric pacient: <span class="required">*</span></label>
+                <label for="istoric">Istoric: <span class="required">*</span></label>
                 <textarea id="istoric" name="istoric" rows="3" required></textarea>
             </div>
 
-            <div class="form-section-columns">
-                <div class="column">
+            <div class="form-section-columns eye-section">
+                <div class="eye-column">
                     <h3>Ochi Drept (OD)</h3>
                     <div class="form-group">
                         <label for="avod">AVOD (Acuitate Vizuală):</label>
                         <input type="text" id="avod" name="avod">
                     </div>
-                    <div class="form-group">
-                        <label for="piod">PIOOD (Presiune Intraoculară) (mmHg):</label>
-                        <input type="text" id="piod" name="piod">
+                    <div class="form-group inline-checkbox-group">
+                        <label for="piod">
+                            PIOOD (Presiune Intraoculară (mmHg):
+                            <input type="checkbox" id="piod_tratament_checkbox" name="piod_tratament_checkbox">
+                            <label for="piod_tratament_checkbox">Sub tratament</label>
+                        </label>
+                        <div class="inline-inputs">
+                            <input type="text" id="piod" name="piod">
+                            <label for="piod_tratament">
+                                <input type="text" id="piod_tratament" name="piod_tratament" class="hidden">
+                            </label>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="pleoapaod">Pleoapă OD:</label>
                         <input type="text" id="pleoapaod" name="pleoapaod">
                     </div>
                 </div>
-                <div class="column">
+                <div class="eye-column">
                     <h3>Ochi Stâng (OS)</h3>
                     <div class="form-group">
                         <label for="avos">AVOS (Acuitate Vizuală):</label>
                         <input type="text" id="avos" name="avos">
                     </div>
-                    <div class="form-group">
-                        <label for="pios">PIOOS (Presiune Intraoculară) (mmHg):</label>
-                        <input type="text" id="pios" name="pios">
+                    <div class="form-group inline-checkbox-group">
+                        <label for="pios">
+                            PIOOS (Presiune Intraoculară) (mmHg):
+                            <input type="checkbox" id="pios_tratament_checkbox" name="pios_tratament_checkbox">
+                            <label for="pios_tratament_checkbox">Sub tratament</label>
+                        </label>
+                        <div class="inline-inputs">
+                            <input type="text" id="pios" name="pios">
+                            <label for="pios_tratament">
+                                <input type="text" id="pios_tratament" name="pios_tratament" class="hidden">
+                            </label>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="pleoapaos">Pleoapă OS:</label>
