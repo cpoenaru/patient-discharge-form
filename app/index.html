@@ -366,14 +366,24 @@
                             <label for="octMacularCheckbox">OCT Macular</label>
                         </div>
                         <div id="octMacularFields" class="hidden">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="octMacularSameCheckbox" name="octMacularSameCheckbox">
+                                <label for="octMacularSameCheckbox">Completează aceleași informații la ambii ochi</label>
+                            </div>
                             <div class="eye-section">
-                                <div class="eye-column">
+                                <div class="eye-column hidden" id="octMacularaoAllFields">
+                                    <div class="form-group">
+                                        <label for="octMacular_ao">OCT Macular AO:</label>
+                                        <textarea id="octMacular_ao" name="octMacular_ao" rows="2"></textarea>
+                                    </div>
+                                </div>
+                                <div class="eye-column" id="octMacularodAllFields">
                                     <div class="form-group">
                                         <label for="octMacular_od">OCT Macular OD:</label>
                                         <textarea id="octMacular_od" name="octMacular_od" rows="2"></textarea>
                                     </div>
                                 </div>
-                                <div class="eye-column">
+                                <div class="eye-column" id="octMacularosAllFields">
                                     <div class="form-group">
                                         <label for="octMacular_os">OCT Macular OS:</label>
                                         <textarea id="octMacular_os" name="octMacular_os" rows="2"></textarea>
@@ -388,14 +398,24 @@
                             <label for="octNervCheckbox">OCT de nerv optic</label>
                         </div>
                         <div id="octNervFields" class="hidden">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="octNervSameCheckbox" name="octNervSameCheckbox">
+                                <label for="octNervSameCheckbox">Completează aceleași informații la ambii ochi</label>
+                            </div>
                             <div class="eye-section">
-                                <div class="eye-column">
+                                <div class="eye-column hidden" id="octNervaoAllFields">
+                                    <div class="form-group">
+                                        <label for="octNerv_ao">OCT de nerv optic AO:</label>
+                                        <textarea id="octNerv_ao" name="octNerv_ao" rows="2"></textarea>
+                                    </div>
+                                </div>
+                                <div class="eye-column" id="octNervodAllFields">
                                     <div class="form-group">
                                         <label for="octNerv_od">OCT de nerv optic OD:</label>
                                         <textarea id="octNerv_od" name="octNerv_od" rows="2"></textarea>
                                     </div>
                                 </div>
-                                <div class="eye-column">
+                                <div class="eye-column" id="octNervosAllFields">
                                     <div class="form-group">
                                         <label for="octNerv_os">OCT de nerv optic OS:</label>
                                         <textarea id="octNerv_os" name="octNerv_os" rows="2"></textarea>
@@ -413,16 +433,26 @@
                     <label for="cvCheckbox">CV Efectuat (Câmp Vizual)</label>
                 </div>
                 <div id="cvFields" class="hidden">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="cvSameCheckbox" name="cvSameCheckbox">
+                        <label for="cvSameCheckbox">Completează aceleași informații la ambii ochi</label>
+                    </div>
                     <div class="eye-section">
-                        <div class="eye-column">
+                        <div class="eye-column hidden" id="cvaoAllFields">
                             <div class="form-group">
-                                <label for="cv_od">CV OD:</label>
+                                <label for="cv_ao">Câmp Vizual AO:</label>
+                                <textarea id="cv_ao" name="cv_ao" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <div class="eye-column" id="cvodAllFields">
+                            <div class="form-group">
+                                <label for="cv_od">Câmp Vizual OD:</label>
                                 <textarea id="cv_od" name="cv_od" rows="2"></textarea>
                             </div>
                         </div>
-                        <div class="eye-column">
+                        <div class="eye-column" id="cvosAllFields">
                             <div class="form-group">
-                                <label for="cv_os">CV OS:</label>
+                                <label for="cv_os">Câmp Vizual OS:</label>
                                 <textarea id="cv_os" name="cv_os" rows="2"></textarea>
                             </div>
                         </div>
@@ -436,14 +466,24 @@
                     <label for="ecoCheckbox">Eco Efectuat</label>
                 </div>
                 <div id="ecoFields" class="hidden">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="ecoSameCheckbox" name="ecoSameCheckbox">
+                        <label for="ecoSameCheckbox">Completează aceleași informații la ambii ochi</label>
+                    </div>
                     <div class="eye-section">
-                        <div class="eye-column">
+                        <div class="eye-column hidden" id="ecoaoAllFields">
+                            <div class="form-group">
+                                <label for="eco_ao">Eco AO:</label>
+                                <textarea id="eco_ao" name="eco_ao" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <div class="eye-column" id="ecoodAllFields">
                             <div class="form-group">
                                 <label for="eco_od">Eco OD:</label>
                                 <textarea id="eco_od" name="eco_od" rows="2"></textarea>
                             </div>
                         </div>
-                        <div class="eye-column">
+                        <div class="eye-column" id="ecoosAllFields">
                             <div class="form-group">
                                 <label for="eco_os">Eco OS:</label>
                                 <textarea id="eco_os" name="eco_os" rows="2"></textarea>
@@ -458,14 +498,24 @@
                     <label for="gonioscopieCheckbox">Gonioscopie efectuată</label>
                 </div>
                 <div id="gonioscopieFields" class="hidden">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="gonioscopieSameCheckbox" name="gonioscopieSameCheckbox">
+                        <label for="gonioscopieSameCheckbox">Completează aceleași informații la ambii ochi</label>
+                    </div>
                     <div class="eye-section">
-                        <div class="eye-column">
+                        <div class="eye-column hidden" id="gonioscopieaoAllFields">
+                            <div class="form-group">
+                                <label for="gonioscopie_ao">Gonioscopie AO:</label>
+                                <textarea id="gonioscopie_ao" name="gonioscopie_ao" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <div class="eye-column" id="gonioscopieodAllFields">
                             <div class="form-group">
                                 <label for="gonioscopie_od">Gonioscopie OD:</label>
                                 <textarea id="gonioscopie_od" name="gonioscopie_od" rows="2"></textarea>
                             </div>
                         </div>
-                        <div class="eye-column">
+                        <div class="eye-column" id="gonioscopieosAllFields">
                             <div class="form-group">
                                 <label for="gonioscopie_os">Gonioscopie OS:</label>
                                 <textarea id="gonioscopie_os" name="gonioscopie_os" rows="2"></textarea>
