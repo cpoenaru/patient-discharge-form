@@ -34,6 +34,9 @@ function initDateControls() {
  * Add all event listeners for the application
  */
 function addAllEventListeners() {
+    // Patient information checkboxes
+    addPatientInfoToggleListeners();
+
     // Biomicroscopic examination checkboxes
     addBiomicroscopicCheckboxListeners();
 
