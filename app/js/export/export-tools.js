@@ -58,12 +58,11 @@ function printDischargeForm() {
  * Download the discharge form as a text file
  */
 function downloadDischargeForm() {
-    const name = document.getElementById('numePrenume').value.replace(' ', '_');
     const textToDownload = document.getElementById('resultContent').textContent;
     const link = document.createElement('a');
     const file = new Blob([textToDownload], { type: 'text/plain'});
     link.href = URL.createObjectURL(file);
-    link.download = `externare_${name}`;
+    link.download = document.getElementById('numePrenume').value.replace(' ', '_');
     link.click();
     URL.revokeObjectURL(link.href);
 }
