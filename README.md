@@ -106,4 +106,4 @@ This project is licensed under the terms found in [LICENSE.md](LICENSE.md).
 
 ## Contact & Support
 
-- Report issues via [GitHub Issues](https://github.com/yourusername/patient-discharge-form/issues)
+- Report issues via [GitHub Issues](https://github.com/cpoenaru/patient-discharge-form/issues)
